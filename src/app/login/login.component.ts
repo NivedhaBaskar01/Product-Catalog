@@ -7,16 +7,12 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit
+export class LoginComponent 
 {
   model:any={}
   getData:any
   constructor(private userservice:UserserviceService,private router:Router)
   {}
-  ngOnInit(): void 
-  {
-
-  }
   loginuser()
   {
     var user=this.model.username;
