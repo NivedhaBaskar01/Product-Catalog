@@ -3,18 +3,15 @@
 <form>
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required="Enter name" [(ngModel)]="model.username"/>
+    <input type="text" placeholder="Enter Username" name="username" required="Enter name" [(ngModel)]="users.username"/>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required="Enter password" [(ngModel)]="model.password"/>
+    <input type="password" placeholder="Enter Password" name="password" required="Enter password" [(ngModel)]="users.password"/>
     <button type="submit" (click)="loginuser()">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+    
   </div>
 
   <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw"><a routerLink="/signup" routerLinkActive="active">Signup</a></span>
+    <h6>New User? <a routerLink="/signup" routerLinkActive="active">Signup</a></h6>
   </div>
 </form>

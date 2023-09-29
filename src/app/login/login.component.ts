@@ -1,37 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { UserserviceService } from '../userservice.service';
 import { Router } from '@angular/router';
+import { Users } from '../users';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit
+export class LoginComponent
 {
-  model:any={}
+  users:Users = new Users();
   getData:any
   constructor(private userservice:UserserviceService,private router:Router)
   {}
-  ngOnInit(): void 
-  {
-
-  }
   loginuser()
   {
-    var user=this.model.username;
-    var password=this.model.password;
-    this.userservice.getUserData(user,password).subscribe((res:any)=>
-    {
-      this.getData=res;
-      if(this.getData==true)
-      {
-        this.router.navigate(['/home'])
-      }
-      else{
-        alert("Invalid credentials");
-      }
-    })
+    console.log(this.users)
+    this.userservice.getUserData(this.users).subscribe(data => {
+      console.log(data);
+      alert("Login Successful");
+      this.router.navigate(['/home']);
+    },
+      error => alert("Enter correct credentials"));
   }
 
 }
