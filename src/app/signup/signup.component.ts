@@ -10,21 +10,7 @@ import { Users } from '../users';
 })
 export class SignupComponent {
   re_password:string=""
-  users:Users = new Users();
-
-  constructor(private userservice:UserserviceService,private router:Router){}
-
-  signupUser(){
-    this.userservice.createUser(this.users).subscribe(data => {
-      console.log(data);
-      alert("Registration Successful");
-      this.router.navigate(['/login']);
-    },
-      error => console.log(error));
-
-    
-    
-  }
+  model:any={}
 
 
 

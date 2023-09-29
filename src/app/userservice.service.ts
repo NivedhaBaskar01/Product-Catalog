@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Users } from './users';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +20,4 @@ export class UserserviceService {
   createUser(user: Users):Observable<any>{
     return this.http.post(`http://localhost:8080/users`,user);
   }
-
 }
