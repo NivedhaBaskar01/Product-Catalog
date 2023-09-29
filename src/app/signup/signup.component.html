@@ -1,20 +1,20 @@
 <h2>SIGN UP</h2>
-<form #signupform="ngForm">
+<form #signupform="ngForm"  (submit)="signupuser(signupform)">
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required="Enter name" [(ngModel)]="model.username"/>
+      <input type="text" placeholder="Enter Username" name="username" required="Enter name" ngModel/>
       
-      <label for="mailid"><b>Mail id</b></label>
-      <input type="text" placeholder="Enter mail-id" name="mailid" required="Enter mail id" [(ngModel)]="model.mailid"/>
+      <!-- <label for="mailid"><b>Mail id</b></label>
+      <input type="text" placeholder="Enter mail-id" name="mailid" required="Enter mail id" ngModel/>
 
       <label for="phone"><b>Phone no</b></label>
-      <input type="text" placeholder="Enter Contact no" name="phone" required="Enter phone no" [(ngModel)]="model.phone"/>
+      <input type="text" placeholder="Enter Contact no" name="phone" required="Enter phone no" ngModel/> -->
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required="Enter password" [(ngModel)]="model.password"/>
+      <input type="password" placeholder="Enter Password" name="password" required="Enter password" ngModel/>
       
-      <label for="repsw"><b>Re-enter Password</b></label>
-      <input type="password" placeholder="Re-Enter Password" name="re-password" required="Re-Enter password" [(ngModel)]="re_password"/>
+      <!-- <label for="repsw"><b>Re-enter Password</b></label>
+      <input type="password" placeholder="Re-Enter Password" name="re-password" required="Re-Enter password" [(ngModel)]="re_password"/> -->
       <button type="submit" >Signup</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
