@@ -1,1 +1,28 @@
-<p>signup works!</p>
+<h2>SIGN UP</h2>
+<form #signupform="ngForm">
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required="Enter name" [(ngModel)]="model.username"/>
+      
+      <label for="mailid"><b>Mail id</b></label>
+      <input type="text" placeholder="Enter mail-id" name="mailid" required="Enter mail id" [(ngModel)]="model.mailid"/>
+
+      <label for="phone"><b>Phone no</b></label>
+      <input type="text" placeholder="Enter Contact no" name="phone" required="Enter phone no" [(ngModel)]="model.phone"/>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required="Enter password" [(ngModel)]="model.password"/>
+      
+      <label for="repsw"><b>Re-enter Password</b></label>
+      <input type="password" placeholder="Re-Enter Password" name="re-password" required="Re-Enter password" [(ngModel)]="re_password"/>
+      <button type="submit" >Signup</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw"><h6>Already an user? </h6><a routerLink="/login" routerLinkActive="active">Login</a></span>
+    </div>
+  </form>
