@@ -1,0 +1,204 @@
+<!-- <p>view-product works!</p> -->
+<div class="outer">
+    <div class="overflow-auto">
+        <div class="container">
+            <br>
+            <h3 class="text-center">PRODUCT LIST</h3>
+            <br>
+            <div class="search">
+                <div class="form-group input-field" >
+                <i class="fa fa-search" style="color: #FE4F70;">&nbsp;&nbsp;</i>
+                <input type="text"  id="searchtxt" placeholder="Search Product" [(ngModel)]="searchText"/>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>PRODUCT ID</th>
+                        <th>NAME</th>
+                        <th>CATEGORY</th>
+                        <th>CLASSIFICATION</th>
+                        <th>PROVIDER</th>
+                        <th>IMAGE</th>                     
+                        <th>UPDATE</th>
+                        <th>CHANGE IMAGE</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products | filter:searchText">
+                        <td>{{product.productId}}</td>
+                        <td>{{product.productName}}</td>
+                        <td>{{product.category}}</td>
+                        <td>{{product.classification}}</td>
+                        <td>{{product.provider}}</td>
+                        <td *ngIf="displayimage(product.prod_image)"><img [src]="image1" style="height: 40px; width: 100px;"/></td>
+                        <td style="text-align: center;"><button id="action"  (click)="onupdate(product)" data-bs-toggle="modal" data-bs-target="#updatemodal">
+                            <!-- <button type="button" class="btn btn-primary"  (click)="onupdate(product)" data-bs-toggle="modal" data-bs-target="#updatemodal"> -->
+                            <i class="fa fa-edit"></i></button></td>
+                        <td><button  id="action" (click)="onupdate(product)" data-bs-toggle="modal" data-bs-target="#changeimage">
+                            
+                            <i class="fa fa-image"></i></button></td>
+
+                        <td><button  id="action" (click)="onupdate(product)" data-bs-toggle="modal" data-bs-target="#deleteproduct"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  
+  <!-- Modal -->
+  <!------------update product---------------->
+  <div class="modal fade" id="updatemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">UPDATE PRODUCT</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="parent-panel">
+                <div class="custom-panel  bg-white">
+                    <div class="panel-body p-3">
+                        <form autocomplete="off" #updateform="ngForm" ngNativeValidate  (submit)="updateProduct(updatevalue.productId,updateform.value)">
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-tag p-2"></span>
+                                    <label>PRODUCT ID</label>
+                                    <input type="text"  class="form-control" placeholder="ID" name="productid"
+                                        ngModel="{{updatevalue?.productId}}" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-product-hunt p-2"></span>
+                                    <label>PRODUCT NAME</label>
+                                    <input type="text"  class="form-control" placeholder="Enter Product Name" name="productname"
+                                        ngModel="{{updatevalue?.productName}}" required title="Product name" />
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-list-alt p-2"></span>
+                                    <label>CATEGORY</label>
+                                    <select  class="form-control" name="category" id="category"  ngModel="{{updatevalue?.category}}" >
+                                        <option value="" disabled>Select Category</option>
+                                        <option value="Wireline">Wireline</option>
+                                        <option value="Wireless">Wireless</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-th-list p-2"></span>
+                                    <label>CLASSIFICATION</label>
+                                    <select  class="form-control" name="classification" id="classification"  ngModel="{{updatevalue?.classification}}" >
+                                        <option value="" disabled>Select Classification</option>
+                                        <option value="Enterprise">Enterprise</option>
+                                        <option value="Small Business">Small Business</option>
+                                        <option value="Residential">Residential</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-globe p-2"></span>
+                                    <label>PROVIDER</label>
+                                    <input type="text"  class="form-control" placeholder="Enter Provider" name="provider"
+                                         ngModel="{{updatevalue?.provider}}"  required="Enter provider" />
+                                </div>
+                            </div>
+                            <!-- <button type="submit" class="btn btn-primary btn-block w-100" >Add Category</button> -->
+                            <button type="submit" class="btn" data-bs-dismiss="modal" aria-label="Update">Update Product</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <!----------- change image  -->
+  <div class="modal fade" id="changeimage" tabindex="-1" aria-labelledby="changeimagemodal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">CHANGE IMAGE</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="parent-panel">
+                <div class="custom-panel  bg-white">
+                    <div class="panel-body p-3">
+                        <form autocomplete="off" ngNativeValidate (submit)="changeImage(updatevalue.productId)" enctype="multipart/form-data" >
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    
+                                    <span class="fa fa-tag p-2"></span>
+                                    <label>PRODUCT ID</label>
+                                    <input type="text"  class="form-control" placeholder="ID" name="productid"
+                                        ngModel="{{updatevalue?.productId}}" disabled />
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-product-hunt p-2"></span>
+                                    <label>PRODUCT NAME</label>
+                                    <input type="text"  class="form-control" placeholder="Product Name" name="productname"
+                                        ngModel="{{updatevalue?.productName}}" required title="Product name" disabled/>
+                                </div>
+                            </div>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-image p-2"></span>
+                                    <label style="font-size: x-small; top: -10PX;">UPLOAD IMAGE</label>
+                                    <input type="file" (change)="onFileChanged($event)"  placeholder="Upload Image" name="image" id="insert">
+                                </div>
+                            </div>
+                            
+
+                            <button type="submit" class="btn " data-bs-dismiss="modal" aria-label="image">Change Image</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div> 
+      </div>
+    </div>
+  </div>
+
+   <!-----------  delete product  -->
+   <div class="modal fade" id="deleteproduct" tabindex="-1" aria-labelledby="changeimagemodal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h6 class="modal-title" id="exampleModalLabel">CONFIRM DELETE</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        <div class="modal-body">
+
+            <div class="parent-panel">
+                <div class="custom-panel  bg-white">
+                    <div class="panel-body p-3">
+                        <form autocomplete="off" ngNativeValidate (submit)="delProduct(updatevalue.productId)" enctype="multipart/form-data" >
+                             <p>PRODUCT ID : {{updatevalue?.productId}}</p>
+                             <p>PRODUCT NAME : {{updatevalue?.productName}}</p>
+                            <button type="submit" class="btn " data-bs-dismiss="modal" aria-label="image">DELETE PRODUCT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>           
+        </div> 
+      </div>
+    </div>
+  </div>
+

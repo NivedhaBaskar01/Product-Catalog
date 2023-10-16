@@ -1,6 +1,6 @@
 export class Users 
 {
-    username:String="";
+    name:String="";
     password:String="";
     mailid:String="";
     phone:String="";

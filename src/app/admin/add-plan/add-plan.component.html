@@ -1,0 +1,347 @@
+
+<p>add-plan works!</p>
+
+<p>add-plan works!</p>
+
+<p>add-plan works!</p>
+
+<p>add-plan works!</p>
+<!-- 
+
+<select name="products" id="product" >
+    <option value="" disabled>Select Category</option>
+    <option *ngFor="let product of allProducts" [value]="product.productName">{{product.productName}}</option>
+</select> -->
+
+
+<div class="container">
+
+     <div class="input-field" >
+        <span class="fa fa-th-list p-2"></span>
+        <select name="category" id="category" [(ngModel)]="category" >
+            <option value="" disabled selected>Select Classification</option>
+            <option value="Enterprise">Enterprise</option>
+            <option value="Small Business">Small Business</option>
+            <option value="Residential">Residential</option>
+
+        </select>
+    </div>
+</div>
+
+<!-- add business -->
+<div class="container" *ngIf="category == 'Small Business'"> 
+    <form #addplanform="ngForm" autocomplete="off" ngNativeValidate (submit)="addBusiness(addplanform.value)" >   
+    <!-- <div class="input-field" >
+        <span class="fa fa-th-list p-2"></span>
+        <select  name="category" id="category">
+            <option value="" disabled selected >Select Category</option>
+            <option value="Enterprise">Enterprise</option>
+            <option value="Small Business">Small Business</option>
+            <option value="Residential">Residential</option>
+
+        </select>
+    </div> -->
+    <div class="form-group pt-3" >
+      
+        <div class="input-field " >
+            <span class="fa fa-product-hunt p-2"></span>
+            <select name="productname" [(ngModel)]="business.product">
+                <option value="" disabled selected>Select Product Name </option>
+                <option *ngFor="let product of allProducts" [ngValue]="product">
+                    <!-- <input type="hidden" name="product_id" value="{{product.productId}}" [(ngModel)]="b_product_id"/> -->
+                    {{product.productName}}</option>
+            </select>
+            <!-- <input type="text" placeholder="Plan name" name="productname"required title="Plan name" /> -->
+        </div>
+    </div>
+    <div class="input-field" >
+        <span class="fa fa-product-hunt p-2"></span>
+        <input type="text" [(ngModel)]="business.bplanName" placeholder="Business Plan Name" name="planname" required title="Plan Name" />
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-rupee p-2"></span>
+            <input type="text" [(ngModel)]="business.bcost" placeholder="Cost" name="productname" required title="Cost" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-percent p-2"></span>
+            <input type="text" [(ngModel)]="business.bdiscount" placeholder="Discount" name="productname" required title="Discount" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-wifi p-2"></span>
+            <input type="text" [(ngModel)]="business.bdata" placeholder="Data (GB/Unlimited)" name="productname"required title="Data" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-tachometer p-2"></span>
+            <input type="text" [(ngModel)]="business.bspeed" placeholder="Speed (Mbps/Gbps)" name="productname"required title="Speed" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-tablet p-2"></span>
+            <input type="text" [(ngModel)]="business.bStaticIp" placeholder="Static IP's" name="productname"required title="Static IP" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-shield p-2"></span>
+            <input type="text" [(ngModel)]="business.bLicense" placeholder="Licences" name="productname"required title="Licences" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field">
+            <span class="fa fa-phone p-2"></span>
+            <select  name="category" id="category" [(ngModel)]="business.bvoice">
+                <option value="" disabled selected>Voice Call</option>
+                <option value="Limited">Limited</option>
+                <option value="Unlimited">Unlimited</option>
+                <option value="NA">NA</option>
+
+            </select>
+        </div>
+
+        <div class="input-field" >
+            <span class="fa fa-video-camera p-2"></span>
+            <select  name="category" id="category" [(ngModel)]="business.bvideo">
+                <option value="" disabled selected >Video Conferencing</option>
+                <option value="Enterprise">Limited</option>
+                <option value="Unlimited">Unlimited</option>
+                <option value="NA">NA</option>
+
+            </select>
+        </div>
+        
+    </div>
+
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-arrow-up p-2"></span>
+            <input type="text" [(ngModel)]="business.bupload" placeholder="Upload Speed" name="productname"required title="Upload" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-arrow-down p-2"></span>
+            <input type="text" [(ngModel)]="business.bdwonload" placeholder="Download Speed" name="productname"required title="Download" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field">
+            <span class="fa fa-mobile p-2"></span>
+            <input type="text" [(ngModel)]="business.bhotspot"  placeholder="Hotspot (devices connectivity count)" name="productname"required title="Hotspot" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" style="height: 100px; width: 900px;" >
+            <input type="text" [(ngModel)]="business.bdescription" placeholder="Description" name="productname" required title="Product name"  />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block" >Add Business Plan</button>
+    </form>
+</div> 
+
+
+<!-- add Enterprise -->
+<div class="container" *ngIf="category == 'Enterprise'"> 
+    <form #addplanform="ngForm" autocomplete="off" ngNativeValidate (submit)="addEnterprise()" >    
+    <div class="form-group pt-3" >
+      
+        <div class="input-field " >
+            <span class="fa fa-product-hunt p-2"></span>
+            <select name="productname" [(ngModel)]="enterprise.product">
+                <option value="" disabled selected>Select Product Name </option>
+                <option *ngFor="let product of allProducts" [ngValue]="product">{{product.productName}}</option>
+            </select>
+            <!-- <input type="text" placeholder="Plan name" name="productname"required title="Plan name" /> -->
+        </div>
+    </div>
+    <div class="input-field" >
+        <span class="fa fa-product-hunt p-2"></span>
+        <input type="text" [(ngModel)]="enterprise.eplanname" placeholder="Enterprise Plan Name" name="planname" required title="Plan Name" />
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-rupee p-2"></span>
+            <input type="text" [(ngModel)]="enterprise.ecost" placeholder="Cost" name="productname"required title="Cost" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-percent p-2"></span>
+            <input type="text" [(ngModel)]="enterprise.ediscount" placeholder="Discount" name="productname"required title="Discount" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-wifi p-2"></span>
+            <input type="text" [(ngModel)]="enterprise.edata" placeholder="Data (GB/Unlimited)" name="productname"required title="Data" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-tachometer p-2"></span>
+            <input type="text" [(ngModel)]="enterprise.espeed" placeholder="Speed (Mbps/Gbps)" name="productname"required title="Speed" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field">
+            <span class="fa fa-phone p-2"></span>
+            <select  name="category" id="category" [(ngModel)]="enterprise.evoip">
+                <option value="" disabled selected>Voip</option>
+                <option value="Limited">Limited</option>
+                <option value="Unlimited">Unlimited</option>
+                <option value="NA">NA</option>
+
+            </select>
+        </div>
+
+        <div class="input-field" >
+            <span class="fa fa-video-camera p-2"></span>
+            <select  name="category" id="category" [(ngModel)]="enterprise.evideo">
+                <option value="" disabled selected >Video Conferencing</option>
+                <option value="Limited">Limited</option>
+                <option value="Unlimited">Unlimited</option>
+                <option value="NA">NA</option>
+
+            </select>
+        </div>
+        
+    </div>
+
+    <div class="form-group pt-3" >
+            <div class="input-field">
+                <span class="fa fa-share-alt p-1"></span>
+               
+                <select  name="category" id="category"  [(ngModel)]="enterprise.efilesharing">
+                    <option value="" disabled selected>Media File Sharing</option>
+                    <option value="Limited">Available</option>
+                    <option value="Na">Not Available</option>
+    
+                </select>
+            </div>
+            <div class="input-field">
+                <span class="fa fa-cloud p-1"></span>
+               
+                <select  name="category" id="category"  [(ngModel)]="enterprise.ecloud">
+                    <option value="" disabled selected>Cloud Application Usage</option>
+                    <option value="Limited">Available</option>
+                    <option value="Na">Not Available</option>
+    
+                </select>
+            </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-line-chart p-1"></span>
+            
+            <input type="text" [(ngModel)]="enterprise.efrequency" class="form-control" placeholder="Frequency (GHz)" name="productname"required title="Frequency" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-sitemap p-1"></span>
+            
+            <select  name="category" id="category" [(ngModel)]="enterprise.eisolation">
+                <option value="" disabled selected>Isolation</option>
+                <option value="Limited">Yes</option>
+                <option value="Unlimited">No</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field">
+            <span class="fa fa-registered p-1"></span>
+            
+            <select  name="category" id="category" [(ngModel)]="enterprise.eroaming">
+                <option value="" disabled selected>Roaming</option>
+                <option value="Limited">Yes</option>
+                <option value="Unlimited">No</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" style="height: 100px; width: 900px;" >
+            <input type="text" [(ngModel)]="enterprise.edescription" placeholder="Description" name="productname" required title="Product name"  />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block" >Add Category</button>
+   </form>
+</div> 
+
+<!-- add residential -->
+<div class="container" *ngIf="category == 'Residential'">
+    <form autocomplete="off" ngNativeValidate (submit)="addResidential()" >
+    <div class="input-field " >
+        <span class="fa fa-product-hunt p-2"></span>
+        <select name="productname" [(ngModel)]="residential.product">
+            <option value="" disabled selected>Select Product Name </option>
+            <option *ngFor="let product of allProducts" [ngValue]="product">{{product.productName}}</option>
+        </select>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field " >
+            <span class="fa fa-product-hunt p-2"></span>
+            <input type="text" [(ngModel)]="residential.rplanname"  placeholder="Plan name" name="productname"required title="Residential Plan name" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-rupee p-2"></span>
+            <input type="text" [(ngModel)]="residential.rcost" placeholder="Cost" name="productname"required title="Cost" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-percent p-2"></span>
+            <input type="text" [(ngModel)]="residential.rdiscount" placeholder="Discount" name="productname"required title="Discount" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-wifi p-2"></span>
+            <input type="text" [(ngModel)]="residential.rdata" placeholder="Data (GB/Unlimited)" name="productname"required title="Data" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-calendar p-2"></span>
+            <input type="text" [(ngModel)]="residential.rvalidity" placeholder="Validity (days)" name="productname"required title="Validity" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field">
+            <span class="fa fa-tachometer p-2"></span>
+            <input type="text" [(ngModel)]="residential.rspeed" placeholder="Speed (Mbps/Gbps)" name="productname"required title="Speed" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-arrow-down p-2"></span>
+            <input type="text" [(ngModel)]="residential.rpostfup" placeholder="Speed Post FUP" name="productname"required title="Speed" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" >
+            <span class="fa fa-commenting p-1"></span>
+            <input type="text" [(ngModel)]="residential.rsms" class="form-control" placeholder="sms (/day)" name="productname"required title="sms" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-volume-control-phone p-1"></span>
+            <select  name="category" id="category" [(ngModel)]="residential.rwcall">
+                <option value="" disabled selected>Wifi Calling</option>
+                <option value="Limited">Limited</option>
+                <option value="Unlimited">Unlimited</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field">
+            <span class="fa fa-television p-2"></span>
+            <input type="text" [(ngModel)]="residential.rsubscription" placeholder="Subscriptions" name="productname"required title="Subscriptions" />
+        </div>
+        <div class="input-field">
+            <span class="fa fa-mobile p-2"></span>
+            <input type="text" [(ngModel)]="residential.rhotspot" placeholder="Hotspot (device connectivity count)" name="productname"required title="Hotspot" />
+        </div>
+    </div>
+    <div class="form-group pt-3" >
+        <div class="input-field" style="height: 100px; width: 900px;" >
+            <input type="text" [(ngModel)]="residential.rdescription" placeholder="Description" name="productname" required title="Product name"  />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" >Add Plan</button>
+</form>
+</div>
+
+ 
+

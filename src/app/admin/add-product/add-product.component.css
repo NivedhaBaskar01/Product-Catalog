@@ -1,0 +1,143 @@
+
+.outer{
+    height:auto;
+    width: 100%;
+    /*background-color:azure
+    background-size: cover;
+    background-position: center; */
+  }
+  button{
+    width: fit-content;
+    color: #FFF;
+    border-radius: 100px;
+    background: #FE4F70;
+    background: -webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);
+    background: linear-gradient(to right, #FE4F70 0%, #FFA387 100%);
+    border:none    
+  }
+  
+  #main-page{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custom-panel{
+    height:80%;
+    
+    /* box-shadow:5px 10px #888888; */
+
+  }
+  
+  .panel-heading{
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  #forgot{
+    min-width:100px;
+    margin-left: auto;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  
+  a:hover{
+    text-decoration: none;
+  }
+  
+  .forn-inline label{
+    padding-left: 10px;
+    margin:0;
+    cursor: pointer;
+  }
+  
+  .btn{
+    margin-top: 20px;
+    border-radius: 15px;
+  }
+  
+  h3 {
+  font-size: xx-large;
+  background: -webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
+
+  .panel{
+    min-height: 380px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 12px;
+    margin-top: 100px;
+    
+  }
+  
+  .parent-panel{
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 5%;
+    margin-left: 5%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* box-shadow:5px 10px black; */
+  }
+  .input-field{
+    border-radius: 5px;
+    padding:5px;
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    color: black;
+  }
+  select{
+    border-radius: 5px;
+    padding:5px;
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    color : black;
+  }
+  
+  .input-field.error{
+    border:1px solid red;
+    color: red;  
+  }
+  
+  input[type='text'],
+  input[type='password']{
+    border: none;
+    outline:none;
+    box-shadow:none;
+    width:100%;
+  }
+  
+  .fa-eye-slash.btn{
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .bordert{
+    border-top: 1px solid #aaa;
+    background-color: white;  
+    position:relative;
+  }
+  
+  .bordert:after{
+    content:"or connect with";
+    position:absolute;
+    top: -13px;
+    left: 33%;
+    background-color: white;
+    padding: 0 8px;
+  }

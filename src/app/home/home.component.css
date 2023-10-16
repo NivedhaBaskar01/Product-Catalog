@@ -1,0 +1,13 @@
+img{
+
+    width: 1200px;
+    height: 500px;
+    border-radius: 5px; 
+    /* height: 85vh; */
+}
+.carousel-inner .carousel-item
+{
+   margin-top: 35px;
+    width: 1700px;
+    height: 510px;
+}

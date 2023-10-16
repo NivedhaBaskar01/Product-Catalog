@@ -1,0 +1,8 @@
+.btn{
+    color: #FFF;
+    border-radius: 120px;
+    background: #FE4F70;
+    background: -webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);
+    background: linear-gradient(to right, #FE4F70 0%, #FFA387 100%);
+    border:none    
+  }

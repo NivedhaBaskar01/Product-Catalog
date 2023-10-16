@@ -1,0 +1,133 @@
+<header class="header-default" *ngIf="getrole()=='default'">
+    <nav class="navbar navbar-expand-lg" style="height: 4px; width:98%">
+        <a class="navbar-brand" routerLink='/home'><img style="height: 150px;" src="assets/logo.png" /></a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" routerLink='/home'>Home</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink='/login'>User</a></li>
+                        <li><a class="dropdown-item" routerLink='/adminlogin'>Admin</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#">Pages</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="">Category</a></li>
+                        <li><a class="dropdown-item" href="">About</a></li>
+                        <li><a class="dropdown-item" href="">Contact</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about">About</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="header-right">
+            <ul class="social-icons list-unstyled list-inline mb-0">
+                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-medium"></i></a></li>
+                <li class="list-inline-item"><a href="#"><i class="fa fa-google"></i></a></li>
+            </ul>
+            <div class="header-buttons">
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-auto" type="search" placeholder="Search" aria-label="Search">
+                    <span>
+                        <button class="search icon-button">
+                            <i class="fa fa-search"></i>
+                        </button></span>
+                </form>
+                <a class="nav-link" *ngIf="userservice.isLogged" (click)="userservice.logout()" id="logout">Logout</a>  
+            </div>
+        </div>
+    </nav>
+</header>
+
+        <!--   Admin menu  -->
+        <header class="header-default" *ngIf="getrole()=='admin'">
+            <nav class="navbar navbar-expand-lg" style="height: 4px; width:98%">
+                <a class="navbar-brand" routerLink='/home'><img style="height: 150px;" src="assets/logo.png" /></a>        
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link " routerLink='/home'>Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#">Action</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink='/admin/viewproduct'>Update Products</a></li>
+                        <li><a class="dropdown-item" routerLink='/admin/viewproduct'>Update Plans</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/admin/addproduct'>Add Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Add Plan</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="header-right">
+            <div class="header-buttons">
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-auto" type="search" placeholder="Search" aria-label="Search" id="search">
+                    <span>
+                        <button class="search icon-button" id="search1">
+                            <i class="fa fa-search"></i>
+                        </button></span>
+                </form>
+                <a class="nav-link" (click)="userservice.logout()" id="logout">Logout</a>
+                <!-- <a class="nav-link" *ngIf="userservice.isLogged" (click)="userservice.logout()" id="logout">Logout</a>                 -->
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!--   User menu  -->
+<header class="header-default" *ngIf="getrole()=='user'">
+    <nav class="navbar navbar-expand-lg" style="height: 4px; width:98%">
+        <a class="navbar-brand" routerLink='/home'><img style="height: 150px;" src="assets/logo.png" /></a>        
+<div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown active">
+            <a class="nav-link " routerLink='/home'>Home</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">Services</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="">Residential</a></li>
+                <li><a class="dropdown-item" href="">Business</a></li>
+                <li><a class="dropdown-item" href="">Enterprise</a></li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#">View</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="">Plans</a></li>
+                <li><a class="dropdown-item" href="">Providers</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="header-right">
+    <div class="header-buttons">
+
+        <form class="d-flex" role="search">
+            <input class="form-control me-auto" type="search" placeholder="Search" aria-label="Search" id="search">
+            <span>
+                <button class="search icon-button" id="search1">
+                    <i class="fa fa-search"></i>
+                </button></span>
+        </form>
+        <a class="nav-link" (click)="userservice.logout()" id="logout">Logout</a> 
+        <!-- <a class="nav-link" *ngIf="userservice.isLogged" (click)="userservice.logout()" id="logout">Logout</a>                 -->
+    </div>
+</div>
+</nav>
+</header>

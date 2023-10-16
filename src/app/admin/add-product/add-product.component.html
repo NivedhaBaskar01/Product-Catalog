@@ -1,0 +1,102 @@
+<p>add-product works!</p>
+<!-- <p>add-category works!</p> -->
+<div class="outer" id="main-page">
+    <div class="container" id="login-comp">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3 parent-panel">
+                <div class="custom-panel  bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weight-bold">Add Category</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form autocomplete="off" ngNativeValidate (submit)="addCategory()" enctype="multipart/form-data" >
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-product-hunt p-2"></span>
+                                    <input type="text" placeholder="Enter Product Name" name="productname"
+                                        [(ngModel)]="product.productName" required title="Product name" />
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-list-alt p-2"></span>
+                                    <!-- <label for="cars">Choose a car:</label> -->
+
+                                    <select name="category" id="category" [(ngModel)]="product.category" >
+                                        <option value="" disabled>Select Category</option>
+                                        <option value="Wireline">Wireline</option>
+                                        <option value="Wireless">Wireless</option>
+
+                                    </select>
+                                    <!-- <input type="text" placeholder="Enter Category" name="category"  [(ngModel)]="product.category"  required="Enter category"/> -->
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-th-list p-2"></span>
+                                    <select name="category" id="category" [(ngModel)]="product.classification">
+                                        <option value="" disabled>Select Classification</option>
+                                        <option value="Enterprise">Enterprise</option>
+                                        <option value="Small Business">Small Business</option>
+                                        <option value="Residential">Residential</option>
+
+                                    </select>
+                                    <!-- <input type="text" placeholder="Enter Classification" name="classification" 
+                                        [(ngModel)]="product.classification" required="Enter classification" />-->
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-globe p-2"></span>
+                                    <input type="text" placeholder="Enter Provider" name="provider"
+                                        [(ngModel)]="product.provider" required="Enter provider" />
+                                </div>
+                            </div>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field">
+                                    <span class="fa fa-image p-2"></span>
+                                    <input type="file" (change)="onFileChanged($event)"  placeholder="Upload Image" name="image" id="insert">
+                                    <!-- <input type="text" placeholder="Enter Provider" name="provider" [(ngModel)]="product.provider" required="Enter provider" /> -->
+                                </div>
+                            </div>
+                            
+
+                            <button type="submit" class="btn btn-primary btn-block w-100" >Add Category</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------ Getting image ------------------------------------>
+
+<div class="container row">
+    <div class="col-md-6">
+        <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+            name="name" />
+    </div>
+    <div class="col-md-6">
+        <input type="button" (click)="getImage()" value="Get Image">
+
+    </div>
+</div>
+
+<div class="container row">
+    <div class="col-md-12">
+        <div *ngIf=retrievedImage>
+            <img [src]="retrievedImage" style="height: 100%;width: 100%;">
+        </div>
+        <div *ngIf="retrieveResonse">
+            <h4>{{retrieveResonse.product_name}}</h4>
+            <h4>{{retrieveResonse.provider}}</h4>
+            <h4>{{retrieveResonse.classification}}</h4>
+            <h4>{{retrieveResonse.category}}</h4>
+        </div>
+    </div>
+</div>
+

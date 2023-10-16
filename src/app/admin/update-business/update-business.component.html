@@ -1,0 +1,216 @@
+<p>update-business works!</p>
+<div class="outer">
+    <div class="overflow-auto">
+        <div class="container">
+            <div class="head" style="display: flex;">
+            <h5 style="margin-bottom: 5%;margin-top: -5px;">SELECT PRODUCT</h5>
+            <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px;" >
+                <div class="input-field">
+                    <span class="fa fa-product-hunt p-2"></span>
+                    <select  name="category" id="category">
+                        <option value="" disabled selected>Choose Product</option>
+                        <option value="Limited">Limited</option>
+                        <option value="Unlimited">Unlimited</option>
+                        <option value="Na">NA</option>
+        
+                    </select>
+                </div>
+            </div>
+            </div>
+            <div class="search">
+                <div class="form-group input-field" >
+                <i class="fa fa-search" style="color: #FE4F70;">&nbsp;&nbsp;</i>
+                <input type="text"  [(ngModel)]="searchtxt" placeholder="Search Product" />
+                </div>
+            </div>
+            <table class="table">
+                <thead >
+                    <tr style="text-align: left;">
+                        <th>PLAN ID</th>
+                        <th>PLAN NAME</th>
+                        <th>CLASSIFICATION</th>
+                        <th>CATEGORY</th>                   
+                        <th>UPDATE</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let b of allBusiness | filter : searchtxt">
+                        <td>{{b.businessId}}</td>
+                        <td>{{b.bplanName}}</td>
+                        <td>{{b.product.classification}}</td>
+                        <td>{{b.product.category}}</td>
+
+                        
+                        
+                        <td style="text-align: left;"><button id="action" (click)="onUpdate(b)"   data-bs-toggle="modal" data-bs-target="#updatemodal">                            
+                            <i class="fa fa-edit"></i></button></td>
+                        <td style="text-align: left;"><button  id="action" (click)="onUpdate(b)"  data-bs-toggle="modal" data-bs-target="#deleteproduct"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+  
+  <!-- Modal -->
+  <!------------update product---------------->
+  <form autocomplete="off" #updateform="ngForm" (submit)="updateBusiness(updatevalue.businessId,updateform.value)" >
+  <div class="modal fade" id="updatemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">UPDATE BUSINESS PLAN</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+                <div class="form-group pt-3">
+                    <div class="input-field">
+                        <span class="fa fa-tag p-1"></span>
+                            <label>PLAN ID</label>
+                            <input type="text" ngModel="{{updatevalue?.businessId}}"  class="form-control" placeholder="Id" name="planid"disabled />
+                    </div>
+                </div>
+                <div class="form-group pt-3">
+                    <div class="input-field">
+                        <span class="fa fa-product-hunt fa-xs"></span>
+                            <label>PLAN NAME</label>
+                            <input type="text" ngModel="{{updatevalue?.bplanName}}"  class="form-control" placeholder="Name" name="planname"/>
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field" >
+                        <span class="fa fa-rupee p-1"></span>
+                        <label>COST</label>
+                        <input type="text" ngModel="{{updatevalue?.bcost}}" class="form-control"  placeholder="Cost" name="cost"required title="Cost" />
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field">
+                        <span class="fa fa-percent p-1"></span>
+                        <label>DISCOUNT</label>
+                        <input type="text" ngModel="{{updatevalue?.bdiscount}}" class="form-control" placeholder="Discount" name="discount"required title="Discount" />
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field" >
+                        <span class="fa fa-wifi p-1"></span>
+                        <label>DATA</label>
+                        <input type="text" ngModel="{{updatevalue?.bdata}}" class="form-control" placeholder="Data (GB/Unlimited)" name="data"required title="Data" />
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field">
+                        <span class="fa fa-tachometer p-1"></span>
+                        <label>SPEED</label>
+                        <input type="text" ngModel="{{updatevalue?.bspeed}}" class="form-control"  placeholder="Speed (Mbps/Gbps)" name="speed"required title="Speed" />
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field" >
+                        <span class="fa fa-tablet p-1"></span>
+                        <label>STATIC  IP</label>
+                        <input type="text" ngModel="{{updatevalue?.bStaticIp}}" class="form-control" placeholder="Static IP's" name="staticip"required title="Static IP" />
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field">
+                        <span class="fa fa-shield p-1"></span>
+                        <label>LICENSES</label>
+                        <input type="text" ngModel="{{updatevalue?.bLicense}}" class="form-control" placeholder="Licences" name="license"required title="Licences" />
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field">
+                        <span class="fa fa-phone p-1"></span>
+                        <label>VOICE</label>
+                        <select  name="voice" id="category" ngModel="{{updatevalue?.bvoice}}">
+                            <option value="" disabled selected>Voice Call</option>
+                            <option value="Limited">Limited</option>
+                            <option value="Unlimited">Unlimited</option>
+                            <option value="Na">NA</option>
+            
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field">
+                        <span class="fa fa-video-camera p-1"></span>
+                        <label>VIDEO</label>
+                        <select  name="video" id="category" ngModel="{{updatevalue?.bvideo}}">
+                            <option value="" disabled selected>Video Conferencing</option>
+                            <option value="Limited">Limited</option>
+                            <option value="Unlimited">Unlimited</option>
+                            <option value="Na">NA</option>
+            
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field" >
+                        <span class="fa fa-arrow-up p-1"></span>
+                        <label>UPLOAD SPEED</label>
+                        <input type="text" ngModel="{{updatevalue?.bupload}}" class="form-control" placeholder="Upload Speed" name="upload"required title="Upload" />
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field">
+                        <span class="fa fa-arrow-down p-1"></span>
+                        <label>DOWNLOAD SPEED</label>
+                        <input type="text" ngModel="{{updatevalue?.bdownload}}" class="form-control" placeholder="Download Speed" name="download"required title="Download" />
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field">
+                        <span class="fa fa-mobile p-1"></span>
+                        <label>HOTSPOT</label>
+                        <input type="text" ngModel="{{updatevalue?.bhotspot}}" class="form-control" placeholder="Hotspot (devices connectivity count)" name="hotspot"required title="Hotspot" />
+                    </div>
+                </div>
+                <div class="form-group pt-3" >
+                    <div class="input-field" style="height: 100px;" >
+                        <label>DESCRIPTION</label>
+                        <input type="text" ngModel="{{updatevalue?.bdescription}}"  name="description" required title="Product name"  />
+                    </div>
+                </div>
+
+            
+        </div>
+        <div class="modal-footer" style="height: 50px;">
+            <button type="submit" class="btn" data-bs-dismiss="modal" aria-label="Update">UPDATE</button>
+        </div>
+    </div>
+</div>
+
+</div> 
+</form>
+      
+    
+
+
+   <!-----------  delete product  -->
+   <form autocomplete="off" #deletebusiness="ngForm" (submit)="deleteBusiness(updatevalue.businessId)">
+   <div class="modal fade" id="deleteproduct" tabindex="-1" aria-labelledby="changeimagemodal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h6 class="modal-title" id="exampleModalLabel">CONFIRM DELETE</h6>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+                     <div class="modal-body">
+                         
+                             <p>PLAN ID : {{updatevalue?.businessId}}</p>
+                             <p>PLAN NAME : {{updatevalue?.bplanName}} </p>
+                            
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn " data-bs-dismiss="modal" aria-label="image">DELETE</button>
+                    </div>
+                </div>
+            </div>           
+    </div> 
+</form>
+     

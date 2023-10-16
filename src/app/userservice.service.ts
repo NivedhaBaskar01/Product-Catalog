@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Users } from './users';
 import { Observable } from 'rxjs/internal/Observable';
+import { LoginComponent } from './login/login.component';
 
 @Injectable({
   providedIn: 'root'
@@ -9,17 +10,45 @@ import { Observable } from 'rxjs/internal/Observable';
 export class UserserviceService {
   
   user:Users = new Users();
-
-  constructor(private http:HttpClient) 
-  { 
-
+  isLogged:boolean=false;
+  role:string="default";
+  isLoggedin(){
+    return this.isLogged;
   }
-  getUserData(user:Users):Observable<any>
+  constructor(private http:HttpClient) 
   {
-    return this.http.post(`http://localhost:8080/login`,user);
+  }
+
+  loggedin(role:string){
+    if(role=="user"){
+      this.role="user";
+      localStorage.setItem("role",role);
+    }
+    else if(role=="admin"){
+      this.role="admin";
+      localStorage.setItem("role",role);
+    }
+    this.isLogged=true;
+    //console.log(localStorage.getItem("role"));
   }
 
   createUser(user: Users):Observable<any>{
-    return this.http.post(`http://localhost:8080/users`,user);
+    return this.http.post(`http://localhost:8080/signup`,user);
   }
+
+  getUserData(user: Users):Observable<any>{
+    return this.http.post(`http://localhost:8080/login`,user);
+  }
+
+  generateOTP()
+  {
+    return this.http.get("http://localhost:8080/generateOTP");
+  }
+
+  logout(){
+    this.isLogged=false;
+    this.role="default";
+    localStorage.setItem("role","default");
+  }
+
 }

@@ -1,0 +1,241 @@
+<p>update-enterprise works!</p>
+<!-- <div class="Enterprise" style="height:500px;width: 1200px;background: url('src\assets\CUSTOMISE YOUR PLANS WITH US.jpg');"> -->
+    <div class="outer" >
+        <div class="overflow-auto">
+            <div class="container">
+                <div class="head" style="display: flex;">
+                <h5 style="margin-bottom: 5%;margin-top: -5px;">SELECT PRODUCT</h5>
+                <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px;" >
+                    <div class="input-field">
+                        <span class="fa fa-product-hunt p-2"></span>
+                        <select  name="category" id="category">
+                            <option value="" disabled selected>Choose Product</option>
+                            <option value="Limited">Limited</option>
+                            <option value="Unlimited">Unlimited</option>
+                            <option value="Na">NA</option>
+            
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <div class="search">
+                    <div class="form-group input-field" >
+                    <i class="fa fa-search" style="color: #FE4F70;">&nbsp;&nbsp;</i>
+                    <input type="text"  [(ngModel)]="searchtxt" placeholder="Search Product" />
+                    </div>
+                </div>
+                <table class="table">
+                        <tr style="text-align: left;">
+                            <th>PLAN ID</th>
+                            <th>PLAN NAME</th>
+                            <th>PRODUCT NAME</th>                         
+                            <th>CLASSIFICATION</th>   
+                            <th>CATEGORY</th>                
+                            <th>UPDATE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    
+                        <tr style="text-align: left;" *ngFor="let e of allEnterprise | filter : searchtxt">
+                            <td>{{e.enterpriseId}}</td>
+                            <td>{{e.eplanname}}</td>
+                            <td>{{e.product.productName}}</td>
+                            <td>{{e.product.classification}}</td>
+                            <td>{{e.product.category}}</td>
+    
+                            
+                            <td style="text-align: left;"><button id="action" (click)="onUpdate(e)"  data-bs-toggle="modal" data-bs-target="#updatemodal">
+                                
+                                <i class="fa fa-edit"></i></button></td>
+                          
+    
+                            <td style="text-align: left;"><button  id="action" (click)="onUpdate(e)"  data-bs-toggle="modal" data-bs-target="#deleteproduct"><i class="fa fa-trash"></i></button></td>
+                        </tr>
+                        
+                   
+                </table>
+            </div>
+        </div>
+    </div>
+    
+      <!-- Modal -->
+      <!------------update product---------------->
+      <form autocomplete="off"  #updateform="ngForm" (submit)="updateEnterprise(updatevalue.enterpriseId,updateform.value)">
+      <div class="modal fade" id="updatemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">UPDATE ENTERPRISE PLAN</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                    <div class="form-group pt-3">
+                        <div class="input-field">
+                            <span class="fa fa-tag p-1"></span>
+                                <label>PLAN ID</label>
+                                <input type="text" ngModel="{{updatevalue?.enterpriseId}}"  class="form-control" placeholder="Id" name="productid"disabled />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3">
+                        <div class="input-field">
+                            <span class="fa fa-product-hunt fa-xs"></span>
+                                <label>PLAN NAME</label>
+                                <input type="text" ngModel="{{updatevalue?.eplanname}}"  class="form-control" placeholder="Name" name="planname" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field" >
+                            <span class="fa fa-rupee p-1"></span>
+                            <label>COST</label>
+                            <input type="text" ngModel="{{updatevalue?.ecost}}" class="form-control"  placeholder="Cost" name="cost"required title="Cost" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-percent p-1"></span>
+                            <label>DISCOUNT</label>
+                            <input type="text" ngModel="{{updatevalue?.ediscount}}" class="form-control" placeholder="Discount" name="discount"required title="Discount" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field" >
+                            <span class="fa fa-wifi p-1"></span>
+                            <label>DATA</label>
+                            <input type="text" ngModel="{{updatevalue?.edata}}" class="form-control" placeholder="Data (GB/Unlimited)" name="data"required title="Data" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-tachometer p-1"></span>
+                            <label>SPEED</label>
+                            <input type="text" ngModel="{{updatevalue?.espeed}}" class="form-control"  placeholder="Speed (Mbps/Gbps)" name="speed"required title="Speed" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-phone p-1"></span>
+                            <label>VOIP</label>
+                            <select  name="voip" id="category" ngModel="{{updatevalue?.evoip}}">
+                                <option value="" disabled selected>Voip</option>
+                                <option value="Limited">Limited</option>
+                                <option value="Unlimited">Unlimited</option>
+                                <option value="Na">NA</option>
+                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-video-camera p-1"></span>
+                            <label>VIDEO</label>
+                            <select  name="video" id="category" ngModel="{{updatevalue?.evideo}}">
+                                <option value="" disabled selected>Video Conferencing</option>
+                                <option value="Limited">Limited</option>
+                                <option value="Unlimited">Unlimited</option>
+                                <option value="Na">NA</option>
+                
+                            </select>
+                        </div>
+                    </div>
+                  
+                    
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-share-alt p-1"></span>
+                            <label>MEDIA FILE SHARE</label>
+                            <select  name="fileshare" id="category" ngModel="{{updatevalue?.efilesharing}}">
+                                <option value="" disabled selected>Media File Sharing</option>
+                                <option value="Limited">Available</option>
+                                <option value="Na">Not Available</option>
+                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-cloud p-1"></span>
+                            <label>CLOUD USAGE</label>
+                            <select  name="cloud" id="category" ngModel="{{updatevalue?.ecloud}}">
+                                <option value="" disabled selected>Cloud Application Usage</option>
+                                <option value="Limited">Available</option>
+                                <option value="Na">Not Available</option>
+                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field" >
+                            <span class="fa fa-line-chart p-1"></span>
+                            <label>FREQUENCY</label>
+                            <input type="text" ngModel="{{updatevalue?.efrequency}}" class="form-control" placeholder="Frequency (GHz)" name="frequency"required title="Frequency" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-sitemap p-1"></span>
+                            <label>WIRELESS ISOLATION</label>
+                            <select  name="isolation" id="category" ngModel="{{updatevalue?.eisolation}}">
+                                <option value="" disabled selected>Isolation</option>
+                                <option value="Limited">Yes</option>
+                                <option value="Unlimited">No</option>
+                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-registered p-1"></span>
+                            <label>ROAMING</label>
+                            <select  name="roaming" id="category" ngModel="{{updatevalue?.eroaming}}">
+                                <option value="" disabled selected>Roaming</option>
+                                <option value="Limited">Yes</option>
+                                <option value="Unlimited">No</option>
+                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field" style="height: 100px;" >
+                            <label>DESCRIPTION</label>
+                            <input type="text" ngModel="{{updatevalue?.edescription}}"  name="description" required title="Product name"  />
+                        </div>
+                    </div>
+    
+                 
+    
+                
+            </div>
+            <div class="modal-footer" style="height: 50px;">
+                <button type="submit" class="btn" data-bs-dismiss="modal" aria-label="Update">UPDATE</button>
+            </div>
+        </div>
+    </div>   
+    </div> 
+    </form>
+          
+        
+    
+    
+       <!-----------  delete product  -->
+       <form autocomplete="off" #deleteform (submit)="deleteEnterprise(updatevalue.enterpriseId)">
+       <div class="modal fade" id="deleteproduct" tabindex="-1" aria-labelledby="changeimagemodal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">CONFIRM DELETE</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+                         <div class="modal-body">
+                                 <p>PLAN ID : {{updatevalue?.enterpriseId}}</p>
+                                 <p>PLAN NAME : {{updatevalue?.eplanname}} </p>                           
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn " data-bs-dismiss="modal" aria-label="image">DELETE</button>
+                        </div>
+                    </div>
+                </div>           
+        </div> 
+    </form>
+         
+    

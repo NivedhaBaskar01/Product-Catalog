@@ -1,0 +1,218 @@
+<!-- <p>update-residential works!</p> -->
+<!-- <div class="Enterprise" style="height:500px;width: 1200px;background: url('src\assets\CUSTOMISE YOUR PLANS WITH US.jpg');"> -->
+    <div class="outer" >
+        <div class="overflow-auto">
+            <div class="container">
+                <div class="head" style="display: flex;">
+                <h5 style="margin-bottom: 5%;margin-top: -5px;">SELECT RESIDENTIAL PLAN</h5>
+                <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px;" >
+                    <div class="input-field">
+                        <span class="fa fa-product-hunt p-2"></span>
+                        <select  name="category" id="category">
+                            <option value="" disabled selected>Choose Product</option>
+                            <option value="Limited">Limited</option>
+                            <option value="Unlimited">Unlimited</option>
+                            <option value="Na">NA</option>
+            
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <div class="search">
+                    <div class="form-group input-field" >
+                    <i class="fa fa-search" style="color: #FE4F70;">&nbsp;&nbsp;</i>
+                    <input type="text"  [(ngModel)]="searchtxt" placeholder="Search Product" />
+                    </div>
+                </div>
+                <table class="table">
+                        <tr style="text-align: left;">
+                            <th>PLAN ID</th>
+                            <th>PLAN NAME</th>
+                            <th>PRODUCT NAME</th>
+                            <th>CATEGORY</th>
+                            <th>CLASSIFICATION</th>                   
+                            <th>UPDATE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    
+                        <tr style="text-align: left;" *ngFor="let r of allResidential | filter:searchtxt">
+                            <td>{{r.residentialId}}</td>
+                            <td>{{r.rplanname}}</td>
+                            <td>{{r.product.productName}}</td>
+                            <td>{{r.product.category}}</td>
+                            <td>{{r.product.classification}}</td>
+    
+                            
+                            <td style="text-align: left;"><button id="action" (click)="onUpdate(r)"  data-bs-toggle="modal" data-bs-target="#updatemodal">
+                                
+                                <i class="fa fa-edit"></i></button></td>
+                          
+    
+                            <td style="text-align: left;"><button  id="action" (click)="onUpdate(r)"  data-bs-toggle="modal" data-bs-target="#deleteproduct"><i class="fa fa-trash"></i></button></td>
+                        </tr>
+                        
+                   
+                </table>
+            </div>
+        </div>
+    </div>
+    
+      <!-- Modal -->
+      <!------------update product---------------->
+      <form autocomplete="off"  #updateform="ngForm" (submit)="updateResidential(updatevalue.residentialId,updateform.value)" >
+      <div class="modal fade" id="updatemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">UPDATE RESIDENTIAL PLAN</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                    <div class="form-group pt-3">
+                        <div class="input-field">
+                            <span class="fa fa-tag p-1"></span>
+                                <label>PLAN ID</label>
+                                <input type="text" ngModel="{{updatevalue?.residentialId}}"  class="form-control" placeholder="Id" name="planid"disabled />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3">
+                        <div class="input-field">
+                            <span class="fa fa-product-hunt fa-xs"></span>
+                                <label>PLAN NAME</label>
+                                <input type="text" ngModel="{{updatevalue?.rplanname}}" class="form-control" placeholder="Name" name="planname" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field" >
+                            <span class="fa fa-rupee p-1"></span>
+                            <label>COST</label>
+                            <input type="text" ngModel="{{updatevalue?.rcost}}" class="form-control"  placeholder="Cost" name="cost"required title="Cost" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-percent p-1"></span>
+                            <label>DISCOUNT</label>
+                            <input type="text" ngModel="{{updatevalue?.rdiscount}}" class="form-control" placeholder="Discount" name="discount"required title="Discount" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field" >
+                            <span class="fa fa-wifi p-1"></span>
+                            <label>DATA</label>
+                            <input type="text" ngModel="{{updatevalue?.rdata}}" class="form-control" placeholder="Data (GB/Unlimited)" name="data"required title="Data" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-calendar p-2"></span>
+                            <label>VALIDITY</label>
+                            <input type="text" ngModel="{{updatevalue?.rvalidity}}" placeholder="Validity (days)" name="validity"required title="Validity" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-tachometer p-1"></span>
+                            <label>SPEED</label>
+                            <input type="text" ngModel="{{updatevalue?.rspeed}}" class="form-control"  placeholder="Speed (Mbps/Gbps)" name="speed"required title="Speed" />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-arrow-down p-2"></span>
+                            <label>POST FUP</label>
+                            <input type="text" ngModel="{{updatevalue?.rpostfup}}" placeholder="Speed Post FUP" name="postfup"required title="Speed" />
+                        </div>
+                    </div>
+                  
+                    
+                   
+                    <div class="form-group pt-3" >
+                        <div class="input-field" >
+                            <span class="fa fa-commenting p-1"></span>
+                            <label>SMS</label>
+                            
+                            <input type="text" ngModel="{{updatevalue?.rsms}}" class="form-control" placeholder="sms (/day)" name="sms"required title="sms" />
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+                        <div class="input-field">
+                            <span class="fa fa-volume-control-phone p-1"></span>
+                            <label>WIFI CALLING</label>
+                            
+                            <select  name="wcall" id="category" ngModel="{{updatevalue?.rwcall}}">
+                                <option value="" disabled selected>Wifi Calling</option>
+                                <option value="Limited">Limited</option>
+                                <option value="Unlimited">Unlimited</option>
+                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group pt-3" >
+       
+                        <div class="input-field">
+                            <label>SUBSCRIPTIONS</label>
+                            <span class="fa fa-television p-2"></span>
+                            <input type="text" ngModel="{{updatevalue?.rsubscription}}" placeholder="Subscriptions" name="subscription"required title="Subscriptions" />
+                        </div>
+                       
+                    </div>
+                    <div class="form-group pt-3" >
+       
+                       
+                        <div class="input-field">
+                            <span class="fa fa-mobile p-2"></span>
+                            <label>HOTSPOT</label>
+                            <input type="text" ngModel="{{updatevalue?.rhotspot}}" placeholder="Hotspot (device connectivity count)" name="hotspot"required title="Hotspot" />
+                        </div>
+                    </div>
+                  
+                  
+                    <div class="form-group pt-3" >
+                        <div class="input-field" style="height: 100px;" >
+                            <label>DESCRIPTION</label>
+                            <input type="text" ngModel="{{updatevalue?.rdescription}}"  name="description" required title="Product name"  />
+                        </div>
+                    </div>
+    
+                 
+    
+                
+            </div>
+            <div class="modal-footer" style="height: 50px;">
+                <button type="submit" class="btn" data-bs-dismiss="modal" aria-label="Update">UPDATE</button>
+            </div>
+        </div>
+    </div>
+    
+    </div> 
+    </form>
+          
+        
+    
+    
+       <!-----------  delete product  -->
+       <form autocomplete="off" (submit)="deleteResidential(updatevalue.residentialId)">
+       <div class="modal fade" id="deleteproduct" tabindex="-1" aria-labelledby="changeimagemodal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">CONFIRM DELETE</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+                         <div class="modal-body">                            
+                                 <p>PLAN ID : {{updatevalue?.residentialId}}</p>
+                                 <p>PLAN NAME : {{updatevalue?.rplanname}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn " data-bs-dismiss="modal" aria-label="image">DELETE</button>
+                        </div>
+                    </div>
+                </div>           
+        </div> 
+    </form>
+         
+    

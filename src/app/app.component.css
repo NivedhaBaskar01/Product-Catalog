@@ -1,4 +1,16 @@
-.nav {
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+
+.ng-confirm{
+  background-color: aliceblue;
+  font-size: medium;
+}
+
+/* .nav {
     display: flex;
     justify-content: space-between;
     height: fit-content;
@@ -48,14 +60,12 @@
       padding-top: 15px;
       margin-top: auto;
   }
-  
   .nav ul a {
       text-decoration: none;
       color: blueviolet;
       cursor: pointer;
   }
-  
   h1 a{
     color: blueviolet;
     text-decoration: none;
-  }
+  } */

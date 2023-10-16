@@ -1,5 +1,5 @@
 
-<nav class="nav">
+<!-- <nav class="nav">
   <h1><a routerLink="/home">Product Catalog</a> </h1>
   <div class="nav-search">
     <input type="text" placeholder="Search Products" />
@@ -8,10 +8,15 @@
  <div >
   <ul >
     <li><a >Seller</a></li>
-    <li><a routerLink="/login"> User </a></li>
+    <li><a *ngIf="!userservice.isLoggedin()" routerLink="/login"> User Login </a></li>
     <li><a >Cart</a></li>
+    <li><a *ngIf="userservice.isLoggedin()" routerLink="/login" (click)="userservice.logout()"> Logout </a></li>
   </ul> 
  </div>
-</nav>
+</nav> -->
 
+<app-nav></app-nav>
+<!-- <div [ngClass]="loaderStatus">
+  <app-preloader></app-preloader>
+</div> -->
 <router-outlet></router-outlet>

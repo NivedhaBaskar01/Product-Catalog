@@ -1,61 +1,147 @@
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
 
-input[type=text], input[type=password] {
+.outer{
+  height:auto;
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+  /*background-color:azure
+  background-size: cover;
+  background-position: center; */
+}
+button{
+  width: fit-content;
+  color: #FFF;
+  border-radius: 100px;
+  background: #FE4F70;
+  background: -webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);
+  background: linear-gradient(to right, #FE4F70 0%, #FFA387 100%);
+  border:none    
 }
 
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+a{
+  color: #FE4F70;
 }
 
-button:hover {
-  opacity: 0.8;
+#main-page{
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
+.custom-panel{
+  height:80%;
+  
+  /* box-shadow:5px 10px #888888; */
+
 }
 
-.imgcontainer {
+.panel-heading{
   text-align: center;
-  margin: 24px 0 12px 0;
+  margin-bottom: 10px;
 }
 
-img.avatar {
-  width: 40%;
+#forgot{
+  min-width:100px;
+  margin-left: auto;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+a:hover{
+  text-decoration: none;
+}
+
+.forn-inline label{
+  padding-left: 10px;
+  margin:0;
+  cursor: pointer;
+}
+
+.btn{
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+h3 {
+font-size: xx-large;
+background: -webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.panel{
+  min-height: 380px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 12px;
+  margin-top: 100px;
+  
+}
+
+.parent-panel{
+  border-radius: 20px;
+  background-color: white;
+  margin-top: 10%;
+  margin-left: 50%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* box-shadow:5px 10px black; */
+}
+.input-field{
+  border-radius: 5px;
+  padding:5px;
+  display:flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  color: black;
+}
+select{
+  border-radius: 5px;
+  padding:5px;
+  display:flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  color : black;
+}
+
+.input-field.error{
+  border:1px solid red;
+  color: red;  
+}
+
+input[type='text'],
+input[type='password']{
+  border: none;
+  outline:none;
+  box-shadow:none;
+  width:100%;
+}
+
+.fa-eye-slash.btn{
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50%;
+  position: relative;
 }
 
-.container {
-  padding: 16px;
+.bordert{
+  border-top: 1px solid #aaa;
+  background-color: white;  
+  position:relative;
 }
 
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
+.bordert:after{
+  content:"or connect with";
+  position:absolute;
+  top: -13px;
+  left: 33%;
+  background-color: white;
+  padding: 0 8px;
 }
