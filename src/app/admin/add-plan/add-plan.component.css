@@ -76,6 +76,28 @@
     margin-left: 5%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }  */
+  label  {
+    position: absolute;
+    top: -8px;
+    z-index: 1;
+    left: 30px;
+    background-color: white;
+    padding: 0 5px;
+    font-size: x-small;
+  }
+  .input-field{
+    position: relative;
+  }
+  input {
+    position: relative;
+  }
+  h3 {
+    font-size: xx-large;
+    margin-left: 40%;
+    background: -webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
   .input-field{
     border-radius: 5px;
     padding:5px;

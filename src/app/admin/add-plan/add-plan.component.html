@@ -1,23 +1,11 @@
 
-<p>add-plan works!</p>
-
-<p>add-plan works!</p>
-
-<p>add-plan works!</p>
-
-<p>add-plan works!</p>
-<!-- 
-
-<select name="products" id="product" >
-    <option value="" disabled>Select Category</option>
-    <option *ngFor="let product of allProducts" [value]="product.productName">{{product.productName}}</option>
-</select> -->
-
+<br><br><br><br>
 
 <div class="container">
-
-     <div class="input-field" >
+    <h3>ADD PLAN</h3>
+     <div class="input-field" style="margin-left: 30%;">
         <span class="fa fa-th-list p-2"></span>
+        <label>SELECT CLASSIFICATION</label>
         <select name="category" id="category" [(ngModel)]="category" >
             <option value="" disabled selected>Select Classification</option>
             <option value="Enterprise">Enterprise</option>
@@ -41,22 +29,22 @@
 
         </select>
     </div> -->
+    
     <div class="form-group pt-3" >
-      
         <div class="input-field " >
             <span class="fa fa-product-hunt p-2"></span>
             <select name="productname" [(ngModel)]="business.product">
                 <option value="" disabled selected>Select Product Name </option>
-                <option *ngFor="let product of allProducts" [ngValue]="product">
+                <option *ngFor="let product of allProducts | filter : category" [ngValue]="product">
                     <!-- <input type="hidden" name="product_id" value="{{product.productId}}" [(ngModel)]="b_product_id"/> -->
-                    {{product.productName}}</option>
+                    {{product.productName}} &nbsp; - &nbsp; {{product.category}}</option>
             </select>
             <!-- <input type="text" placeholder="Plan name" name="productname"required title="Plan name" /> -->
         </div>
-    </div>
-    <div class="input-field" >
+       <div class="input-field" >
         <span class="fa fa-product-hunt p-2"></span>
         <input type="text" [(ngModel)]="business.bplanName" placeholder="Business Plan Name" name="planname" required title="Plan Name" />
+    </div>
     </div>
     <div class="form-group pt-3" >
         <div class="input-field" >
@@ -149,15 +137,15 @@
             <span class="fa fa-product-hunt p-2"></span>
             <select name="productname" [(ngModel)]="enterprise.product">
                 <option value="" disabled selected>Select Product Name </option>
-                <option *ngFor="let product of allProducts" [ngValue]="product">{{product.productName}}</option>
+                <option *ngFor="let product of allProducts | filter : category" [ngValue]="product">{{product.productName}} &nbsp; - &nbsp; {{product.category}}</option>
             </select>
             <!-- <input type="text" placeholder="Plan name" name="productname"required title="Plan name" /> -->
         </div>
-    </div>
+   
     <div class="input-field" >
         <span class="fa fa-product-hunt p-2"></span>
         <input type="text" [(ngModel)]="enterprise.eplanname" placeholder="Enterprise Plan Name" name="planname" required title="Plan Name" />
-    </div>
+    </div> </div>
     <div class="form-group pt-3" >
         <div class="input-field" >
             <span class="fa fa-rupee p-2"></span>
@@ -267,14 +255,15 @@
 <!-- add residential -->
 <div class="container" *ngIf="category == 'Residential'">
     <form autocomplete="off" ngNativeValidate (submit)="addResidential()" >
+        <div class="form-group pt-3" >
     <div class="input-field " >
         <span class="fa fa-product-hunt p-2"></span>
         <select name="productname" [(ngModel)]="residential.product">
             <option value="" disabled selected>Select Product Name </option>
-            <option *ngFor="let product of allProducts" [ngValue]="product">{{product.productName}}</option>
+            <option *ngFor="let product of allProducts | filter : category" [ngValue]="product">{{product.productName}} &nbsp; - &nbsp; {{product.category}}</option>
         </select>
     </div>
-    <div class="form-group pt-3" >
+
         <div class="input-field " >
             <span class="fa fa-product-hunt p-2"></span>
             <input type="text" [(ngModel)]="residential.rplanname"  placeholder="Plan name" name="productname"required title="Residential Plan name" />

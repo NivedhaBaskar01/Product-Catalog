@@ -1,10 +1,11 @@
-<p>update-business works!</p>
+<!-- <p>update-business works!</p> -->
+  <br><br>
 <div class="outer">
     <div class="overflow-auto">
         <div class="container">
             <div class="head" style="display: flex;">
-            <h5 style="margin-bottom: 5%;margin-top: -5px;">SELECT PRODUCT</h5>
-            <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px;" >
+            <h3 style="margin-bottom: 40px;margin-top: -5px;margin-left: 34%;">UPDATE BUSINESS PLANS</h3>
+            <!-- <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px;" >
                 <div class="input-field">
                     <span class="fa fa-product-hunt p-2"></span>
                     <select  name="category" id="category">
@@ -15,7 +16,7 @@
         
                     </select>
                 </div>
-            </div>
+            </div> -->
             </div>
             <div class="search">
                 <div class="form-group input-field" >
@@ -24,30 +25,27 @@
                 </div>
             </div>
             <table class="table">
-                <thead >
+                <!-- <thead > -->
                     <tr style="text-align: left;">
                         <th>PLAN ID</th>
                         <th>PLAN NAME</th>
-                        <th>CLASSIFICATION</th>
+                        <!-- <th>CLASSIFICATION</th> -->
                         <th>CATEGORY</th>                   
                         <th>UPDATE</th>
                         <th>DELETE</th>
                     </tr>
-                </thead>
-                <tbody>
+                <!-- </thead> -->
+                <!-- <tbody> -->
                     <tr *ngFor="let b of allBusiness | filter : searchtxt">
                         <td>{{b.businessId}}</td>
                         <td>{{b.bplanName}}</td>
-                        <td>{{b.product.classification}}</td>
-                        <td>{{b.product.category}}</td>
-
-                        
-                        
+                        <!-- <td>{{b.product.classification}}</td> -->
+                        <td>{{b.product.category}}</td>                       
                         <td style="text-align: left;"><button id="action" (click)="onUpdate(b)"   data-bs-toggle="modal" data-bs-target="#updatemodal">                            
                             <i class="fa fa-edit"></i></button></td>
                         <td style="text-align: left;"><button  id="action" (click)="onUpdate(b)"  data-bs-toggle="modal" data-bs-target="#deleteproduct"><i class="fa fa-trash"></i></button></td>
                     </tr>
-                </tbody>
+                <!-- </tbody> -->
             </table>
         </div>
     </div>

@@ -1,8 +1,7 @@
-tr:hover{
-    background-color: #FFA387;
-  }
+
   tr{
     text-align: left;
+    border: 1px solid gainsboro;
   }
   th{
     font-weight:500;
@@ -87,6 +86,10 @@ tr:hover{
     padding-left: 10px;
     margin:0;
     cursor: pointer;
+  }
+  table
+  {
+   border: 1px solid gainsboro;
   }
   
   h3{

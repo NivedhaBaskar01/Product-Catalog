@@ -30,7 +30,7 @@ updateBusiness(id:any, form:any){
 	this.updatevalue.bplanName=form.planname;
 	this.updatevalue.bcost=form.cost;
 	this.updatevalue.bdiscount=form.discount;
-	this.updatevalue.bfinalPrice= form.cost - (form.discount*0.01*form.cost);
+	this.updatevalue.bfinalPrice=Math.round (form.cost - (form.discount*0.01*form.cost));
 	this.updatevalue.bdata =form.data;
 	this.updatevalue.bspeed=form.speed;
 	this.updatevalue.bupload=form.upload;

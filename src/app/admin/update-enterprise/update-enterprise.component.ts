@@ -30,7 +30,8 @@ updateEnterprise(id:any,form:any){
     this.updatevalue.eplanname= form.planname
     this.updatevalue.ecost= form.cost
     this.updatevalue.ediscount= form.discount
-    this.updatevalue.efinalprice= form.cost - (form.discount * 0.01 * form.cost)
+    this.updatevalue.efinalPrice=Math.round (form.cost - (form.discount*0.01*form.cost));
+    // this.updatevalue.efinalprice= form.cost - (form.discount * 0.01 * form.cost);
     this.updatevalue.edata= form.data
     this.updatevalue.espeed= form.speed
     this.updatevalue.evideo= form.video

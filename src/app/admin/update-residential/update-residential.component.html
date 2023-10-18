@@ -1,11 +1,12 @@
 <!-- <p>update-residential works!</p> -->
 <!-- <div class="Enterprise" style="height:500px;width: 1200px;background: url('src\assets\CUSTOMISE YOUR PLANS WITH US.jpg');"> -->
+  <br><br>
     <div class="outer" >
         <div class="overflow-auto">
             <div class="container">
                 <div class="head" style="display: flex;">
-                <h5 style="margin-bottom: 5%;margin-top: -5px;">SELECT RESIDENTIAL PLAN</h5>
-                <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px;" >
+                <h3 style="margin-bottom: 40px;margin-top: -5px;margin-left: 34%;">UPDATE RESIDENTIAL PLAN</h3>
+                <!-- <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px;" >
                     <div class="input-field">
                         <span class="fa fa-product-hunt p-2"></span>
                         <select  name="category" id="category">
@@ -16,7 +17,7 @@
             
                         </select>
                     </div>
-                </div>
+                </div> -->
                 </div>
                 <div class="search">
                     <div class="form-group input-field" >
@@ -30,7 +31,7 @@
                             <th>PLAN NAME</th>
                             <th>PRODUCT NAME</th>
                             <th>CATEGORY</th>
-                            <th>CLASSIFICATION</th>                   
+                            <!-- <th>CLASSIFICATION</th>                    -->
                             <th>UPDATE</th>
                             <th>DELETE</th>
                         </tr>
@@ -40,7 +41,7 @@
                             <td>{{r.rplanname}}</td>
                             <td>{{r.product.productName}}</td>
                             <td>{{r.product.category}}</td>
-                            <td>{{r.product.classification}}</td>
+                            <!-- <td>{{r.product.classification}}</td> -->
     
                             
                             <td style="text-align: left;"><button id="action" (click)="onUpdate(r)"  data-bs-toggle="modal" data-bs-target="#updatemodal">

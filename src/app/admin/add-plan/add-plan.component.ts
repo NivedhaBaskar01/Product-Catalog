@@ -32,37 +32,37 @@ getAllProducts(){
 }
 
 addBusiness(addplanform:any){
-  this.business.bfinalPrice= this.business.bcost - (this.business.bdiscount *0.01*this.business.bcost)
+  this.business.bfinalPrice= Math.round( this.business.bcost - (this.business.bdiscount *0.01*this.business.bcost))
   this.business.productName=this.business.product.productName
-  //console.log(this.business)  
+  console.log(this.business)  
   this.planservice.addBusiness(this.business).subscribe(data=>{
     console.log(data)
     this.toast.success("Business Plan Added")
-    window.location.reload
+    window.location.reload()
     this.ngOnInit()
-
   })
 }
 
 addEnterprise(){
-  this.enterprise.efinalprice= this.enterprise.ecost - (this.enterprise.ediscount *0.01*this.enterprise.ecost)
+  this.enterprise.efinalPrice= Math.round(this.enterprise.ecost - (this.enterprise.ediscount * 0.01 * this.enterprise.ecost))
   this.enterprise.productName=this.enterprise.product.productName;
-  //console.log(this.enterprise)
+  console.log(this.enterprise)
   this.planservice.addEnterprise(this.enterprise).subscribe(data=>{
     console.log("Plan Added"+data)
     this.toast.success("Enterprise plan added");
-    window.location.reload
+    window.location.reload()
     this.ngOnInit()
   })
 }
 
 addResidential(){
   this.residential.productName=this.residential.product.productName;
-  this.residential.rfinalPrice = this.residential.rcost - (this.residential.rdiscount * 0.01 * this.residential.rcost)
+  this.residential.rfinalPrice =Math.round (this.residential.rcost - (this.residential.rdiscount * 0.01 * this.residential.rcost))
   //console.log(this.residential)
   this.planservice.addResidential(this.residential).subscribe(data=>{
+
+    window.location.reload()
     this.toast.success("Residential Plan Added")
-    window.location.reload
     this.ngOnInit()
     console.log("Plan Added"+data)
     

@@ -1,0 +1,117 @@
+tr{
+    text-align: left;
+    border: 1px solid gainsboro;
+  }
+
+ 
+  th{
+    font-weight:500;
+    font-size:15px;
+    text-align: left;
+    color:#383838;
+  }
+  table
+  {
+   width: 550px;
+   margin-left: 30px;
+  }
+  .price {
+    margin: 2px;
+    /* border-left: 6px solid ;
+    border-color: #FE4F70; 
+    height: 40px; */
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  #sp{
+    height: 40px;
+    width: 5px;
+    background-color:#FE4F70;
+    border-radius: 99px;
+    margin-right: 5px;
+}
+.discount
+{
+  background:black;
+  z-index: 3;
+  /* position: absolute; */
+  position: relative;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  width: 50px;
+  height: 30px;
+  border-radius: 0 15px 15px 0;
+  line-height: 30px;
+  font-style: italic;
+  left: -5px;
+  /* top: 80px; */
+}
+.discount::after
+{
+  content: '';
+  position: absolute;
+  border-top: 6px solid #202020;
+  border-left: 8px solid transparent;
+  border-right: 0px solid transparent;
+  left: 0;
+  bottom: -6px;
+
+}
+
+.rating
+{
+  display: flex;
+  align-items: left;
+  gap: 8px;
+  margin-top: 20px;
+
+}
+.input-field{
+  position: relative;
+}
+input {
+  position: relative;
+}
+label {
+  position: absolute;
+  top: -8px;
+  z-index: 1;
+  left: 10px;
+  background-color: white;
+  padding: 0 5px;
+  font-size: x-small;
+  color: #FE4F70;
+}
+input:disabled{
+  background-color: white;
+}
+.input-field{
+  border-radius: 5px;
+  padding:5px;
+  display:flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #FE4F70;
+  color: black;
+  margin-top: 20px;
+}
+input[type='text'],
+input[type='password']{
+  border: none;
+  outline:none;
+  box-shadow:none;
+  width:100%;
+}
+
+i{
+  color: #8080806b;
+  cursor: pointer;
+  size: 0.6rem;
+}
+.active
+{
+  color:orange;
+}

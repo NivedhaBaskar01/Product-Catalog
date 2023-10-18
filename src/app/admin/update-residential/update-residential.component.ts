@@ -32,7 +32,7 @@ updateResidential(id:any, form:any){
   this.updatevalue.rplanname = form.planname;
   this.updatevalue.rcost = form.cost;
   this.updatevalue.rdiscount = form.discount;
-  this.updatevalue.rfinalPrice = form.cost - (form.discount * 0.01 * form.cost);
+  this.updatevalue.rfinalPrice = Math.round(form.cost - (form.discount * 0.01 * form.cost));
   this.updatevalue.rdata = form.data;
   this.updatevalue.rspeed = form.speed;
   this.updatevalue.rvalidity = form.validity;

@@ -7,7 +7,7 @@ export class Enterprise{
 	eplanname : string = "";
 	ecost : number = 0;
 	ediscount : number = 0;
-	efinalprice : number = 0;
+	efinalPrice : number = 0;
 	edata : string = "";
 	espeed : string = "";
 	evideo : string = "";

@@ -28,6 +28,12 @@ export class PlanserviseService {
     return this.http.get("http://localhost:8080/deletebusiness/"+id);
   }
 
+  getBusinessById(id:any):Observable<any>{
+    return this.http.get("http://localhost:8080/getbusinessbyid/"+id);
+  }
+
+  /////////////////////////////////////////////////////////////////////////
+
   getAllEnterprise():Observable<any>{
     return this.http.get("http://localhost:8080/getallenterprise");
   }
@@ -44,6 +50,12 @@ export class PlanserviseService {
     return this.http.get("http://localhost:8080/deleteenterprise/"+id);
   }
 
+  getEnterpriseById(id:any):Observable<any>{
+    return this.http.get("http://localhost:8080/getenterprisebyid/"+id);
+  }
+
+  ////////////////////////////////////////////////////////////
+
   getAllResidential():Observable<any>{
     return this.http.get("http://localhost:8080/getallresidential");
   }
@@ -58,6 +70,10 @@ export class PlanserviseService {
 
   deleteResidential(id:any):Observable<any>{
     return this.http.get("http://localhost:8080/deleteresidential/"+id);
+  }
+
+  getResidentialById(id:any):Observable<any>{
+    return this.http.get("http://localhost:8080/getresidentialbyid/"+id);
   }
 
 }

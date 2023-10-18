@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ɵsetAlternateWeakRefImpl } from '@angular/core';
 import { UserserviceService } from '../userservice.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -18,14 +18,32 @@ export class AdminloginComponent {
   {}
 
   requestOtp(){
-    console.log("requested otp");
-    this.userservice.generateOTP().subscribe(data => {
+    if(this.adminName == 'nivedhabaskar2001@gmail.com' || this.adminName == 'jayashree.sriuma@gmail.com'){
+      if(this.adminPassword == 'admin123'){
+        console.log("requested otp");
+    this.userservice.generateOTP(this.adminName).subscribe(data => {
         this.generatedOtp=data;
         this.otprequest=true;
       console.log("otp : "+this.generatedOtp);        
       },
         error => this.toast.error("invalid credentials",'',{ timeOut: 2000,}));
-        //alert(error+"invalid credentials"));
+      
+      }
+      else{
+        this.toast.error("Incorrect admin password")
+      }
+    }
+    else{
+      this.toast.error("Invalid Admin Name")
+    }
+    // console.log("requested otp");
+    // this.userservice.generateOTP().subscribe(data => {
+    //     this.generatedOtp=data;
+    //     this.otprequest=true;
+    //   console.log("otp : "+this.generatedOtp);        
+    //   },
+    //     error => this.toast.error("invalid credentials",'',{ timeOut: 2000,}));
+    //     //alert(error+"invalid credentials"));
       
   }
 

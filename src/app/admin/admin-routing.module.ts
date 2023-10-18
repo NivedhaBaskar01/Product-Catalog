@@ -12,10 +12,10 @@ const routes: Routes = [
   { path:'viewproduct', component:ViewProductComponent,
  },
  {path : 'addproduct',component:AddProductComponent},
- {path : 'addplan', component:AddPlanComponent},
+ {path: 'addplan' ,component:AddPlanComponent},
  {path: 'updatebusiness',component:UpdateBusinessComponent},
  {path: 'updateenterprise',component:UpdateEnterpriseComponent},
- {path: 'updateresidential', component:UpdateResidentialComponent}
+ {path: 'updateresidential', component:UpdateResidentialComponent},
 
 ];
 

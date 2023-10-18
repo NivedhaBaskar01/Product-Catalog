@@ -1,11 +1,12 @@
-<p>update-enterprise works!</p>
+<!-- <p>update-enterprise works!</p> -->
 <!-- <div class="Enterprise" style="height:500px;width: 1200px;background: url('src\assets\CUSTOMISE YOUR PLANS WITH US.jpg');"> -->
-    <div class="outer" >
+    <br><br>
+       <div class="outer" >
         <div class="overflow-auto">
             <div class="container">
                 <div class="head" style="display: flex;">
-                <h5 style="margin-bottom: 5%;margin-top: -5px;">SELECT PRODUCT</h5>
-                <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px;" >
+                <h3 style="margin-bottom: 40px;margin-top: -5px;margin-left: 34%;">UPDATE ENTERPRISE PLANS</h3>
+                <!-- <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px;" >
                     <div class="input-field">
                         <span class="fa fa-product-hunt p-2"></span>
                         <select  name="category" id="category">
@@ -16,12 +17,12 @@
             
                         </select>
                     </div>
+                </div> -->
                 </div>
-                </div>
-                <div class="search">
+                <div class="search" style="margin-left: 32%;">
                     <div class="form-group input-field" >
                     <i class="fa fa-search" style="color: #FE4F70;">&nbsp;&nbsp;</i>
-                    <input type="text"  [(ngModel)]="searchtxt" placeholder="Search Product" />
+                    <input type="text"  [(ngModel)]="searchtxt" placeholder="Search Product"/>
                     </div>
                 </div>
                 <table class="table">
@@ -29,7 +30,7 @@
                             <th>PLAN ID</th>
                             <th>PLAN NAME</th>
                             <th>PRODUCT NAME</th>                         
-                            <th>CLASSIFICATION</th>   
+                            <!-- <th>CLASSIFICATION</th>    -->
                             <th>CATEGORY</th>                
                             <th>UPDATE</th>
                             <th>DELETE</th>
@@ -39,7 +40,7 @@
                             <td>{{e.enterpriseId}}</td>
                             <td>{{e.eplanname}}</td>
                             <td>{{e.product.productName}}</td>
-                            <td>{{e.product.classification}}</td>
+                            <!-- <td>{{e.product.classification}}</td> -->
                             <td>{{e.product.category}}</td>
     
                             

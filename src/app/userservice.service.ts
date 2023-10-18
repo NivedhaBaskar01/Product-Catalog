@@ -40,9 +40,9 @@ export class UserserviceService {
     return this.http.post(`http://localhost:8080/login`,user);
   }
 
-  generateOTP()
+  generateOTP(adminMail:any)
   {
-    return this.http.get("http://localhost:8080/generateOTP");
+    return this.http.get("http://localhost:8080/generateOTP/"+adminMail);
   }
 
   logout(){

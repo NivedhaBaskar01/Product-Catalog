@@ -59,14 +59,22 @@
                     <a class="nav-link dropdown-toggle" href="#">Action</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" routerLink='/admin/viewproduct'>Update Products</a></li>
-                        <li><a class="dropdown-item" routerLink='/admin/viewproduct'>Update Plans</a></li>
+                        <li><a class="dropdown-item" id="plans">Update Plans&nbsp;
+                            <i class="fa fa-chevron-right " style="color:gray; font-size: 0.5rem;margin-left: 20px;text-align: right;"></i>
+                        </a> 
+                          <ul class="dropdown-submenu">
+                            <li><a class="dropdown-item" routerLink='/admin/updateenterprise'>Enterprise</a> </li>
+                            <li><a class="dropdown-item" routerLink='/admin/updatebusiness'>Business</a> </li>
+                            <li><a class="dropdown-item" routerLink='/admin/updateresidential'>Residential</a> </li>
+                          </ul>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink='/admin/addproduct'>Add Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">Add Plan</a>
+                    <a class="nav-link" routerLink='/admin/addplan'>Add Plan</a>
                 </li>
             </ul>
         </div>
@@ -100,16 +108,16 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#">Services</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="">Residential</a></li>
-                <li><a class="dropdown-item" href="">Business</a></li>
-                <li><a class="dropdown-item" href="">Enterprise</a></li>
+                <li><a class="dropdown-item" routerLink="/user/residential">Residential</a></li>
+                <li><a class="dropdown-item" routerLink="/user/business">Business</a></li>
+                <li><a class="dropdown-item" routerLink="/user/enterprise">Enterprise</a></li>
             </ul>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#">View</a>
+            <a class="nav-link dropdown-toggle" >View</a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="">Plans</a></li>
-                <li><a class="dropdown-item" href="">Providers</a></li>
+                <li><a class="dropdown-item" >Plans</a></li>
+                <li><a class="dropdown-item" >Providers</a></li>
             </ul>
         </li>
     </ul>

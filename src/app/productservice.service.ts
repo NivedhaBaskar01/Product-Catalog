@@ -39,4 +39,8 @@ export class ProductserviceService {
   changeImage(id:any,image:FormData):Observable<any>{
     return this.http.post(`http://localhost:8080/changeimage/`+id+``,image);
   }
+
+  getAllProviders():Observable<any>{
+    return this.http.get("http://localhost:8080/getallproviders")
+  }
 }

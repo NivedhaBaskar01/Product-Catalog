@@ -1,0 +1,215 @@
+<!-- <p>details-enterprise works!</p> -->
+<!-- <p>viewdetails works!</p> -->
+<br><br><br><br>
+<!-- Enterprise Wireless -->
+
+<div class="container" style="margin-top: 10px;display: flex;" *ngIf="enterprise.product.category=='Wireless'">
+<div class="head">
+<div class="row g-0" style="width: 470px;">
+    <div class="col-md-4">
+      <img [src]="imageUrl(enterprise.product.prod_image)" class="img-fluid start" style="border-top-left-radius: 10px;height: 60px; width: 135px;">
+    </div>
+    <div class="col-md-8" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);text-align: center;padding: 12px;height: 60px;">
+        <h6 class="card-title" style="color: white;">{{enterprise.eplanname}}</h6>
+    </div>
+
+</div>
+<div class="head1">
+  <div class="discount" style="margin-top: 5px;" *ngIf="enterprise.ediscount != null">-{{enterprise.ediscount}}%</div>
+  <div class="price" style="display: flex;padding-top: 15px;">
+    <span id="sp"></span><h2>₹{{enterprise.efinalPrice}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
+    <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 200px;cursor: no-drop;"><span class="fa fa-wifi" style="font-size: 0.8rem;"></span><small>Wireless</small></button>
+  </div>
+</div>
+<div class="rating">
+  <ng-container *ngFor="let i of star">
+    <i class="fa fa-star"   [ngClass]="{'active':i<=rating}" style="cursor:no-drop;"></i>
+  
+  </ng-container>
+  <small style="margin-top: -4px;color: #FE4F70;"><small>{{rating}}/5 stars</small></small>
+</div>
+  <div class="buttns" style="display: flex;">
+    <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;"><span class="fa fa-heart" style="font-size: 0.8rem;"></span><small>ADD TO WISHLIST</small></button>
+  <h6 style="cursor: pointer;color: #FE4F70;margin-top: 40px;margin-left: 200px;">Compare Plans</h6>
+  </div>
+
+ 
+    <div class="form-group pt-3" >
+      <div class="rating" style="margin-top: 30px;">
+        <h6 style="margin-top:-1px;color: #FE4F70;">RATE PLAN &nbsp;</h6>
+        <ng-container *ngFor="let i of star">
+          <i class="fa fa-star" (click)="updateRating(i)"   [ngClass]="{'active':i<=rate}"></i>
+        
+        </ng-container>
+        </div>
+      <div class="input-field" style="height: 80px;" >
+          <label>LEAVE A REVIEW</label>
+          <input type="text"   name="productname" required title="Comment"  />
+      </div>
+      <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;"><small>SUBMIT</small></button>
+  </div>
+</div>
+
+  
+<div class="tab" style="margin-right: -4px;margin-left: 30px;">
+  <table class="table">
+    <tr>
+      <th class="py-2"><span class="fa fa-product-hunt fa-xs"></span>PLAN NAME</th>
+      <td class="py-2">{{enterprise.eplanname}}</td>
+    </tr>
+   
+    <tr>
+      <th class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
+      <td class="py-2">₹{{enterprise.ecost}}</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
+      <td class="py-2">{{enterprise.ediscount}}%</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-wifi fa-xs"></span>DATA</th>
+      <td class="py-2">{{enterprise.edata}} GB</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-tachometer fa-xs"></span>THROUGPUT</th>
+      <td class="py-2">upto {{enterprise.espeed}} Mbps</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-phone fa-xs"></span>VOIP</th>
+      <td class="py-2">{{enterprise.evoip}}</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-video-camera fa-xs"></span>VIDEO CONFERENCING</th>
+      <td class="py-2">{{enterprise.evideo}}</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-share-alt fa-xs"></span>MEDIA FILE SHARING</th>
+      <td class="py-2">{{enterprise.efilesharing}}</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-cloud fa-xs"></span>CLOUD APPLICATION USAGE</th>
+      <td class="py-2">{{enterprise.ecloud}}</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-line-chart fa-xs"></span>FREQUENCY</th>
+      <td class="py-2">{{enterprise.efrequency}} GHz</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-sitemap fa-xs"></span>WIRELESS ISOLATION</th>
+      <td class="py-2">{{enterprise.eisolation}}</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-registered fa-xs"></span>FAST ROAMING</th>
+      <td class="py-2">{{enterprise.eroaming}}</td>
+    </tr>
+    <tr>
+      <th class="py-2"><span class="fa fa-info-circle fa-xs"></span>DESCRIPTION</th>
+      <td class="py-2">{{enterprise.edescription}}</td>
+    </tr>
+    
+      
+
+</table>
+</div>
+
+</div>
+
+
+<!-- Enterprise Wireline -->
+
+<div class="container" style="margin-top: 30px;display: flex;" *ngIf="enterprise.product.category=='Wireline'">
+    <div class="head">
+    <div class="row g-0" style="width: 470px;">
+        <div class="col-md-4">
+          <img [src]="imageUrl(enterprise.product.prod_image)" class="img-fluid start" style="border-top-left-radius: 10px;height: 60px; width: 135px;">
+        </div>
+        <div class="col-md-8" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);text-align: center;padding: 12px;height: 60px;">
+            <h6 class="card-title" style="color: white;">{{enterprise.eplanname}}</h6>
+        </div>
+    
+    </div>
+    <div class="head1">
+      <div class="discount" style="margin-top: 5px;" *ngIf="enterprise.ediscount != null">-{{enterprise.ediscount}}%</div>
+      <div class="price" style="display: flex;padding-top: 15px;">
+        <span id="sp"></span><h2>₹{{enterprise.efinalPrice}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
+        <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 200px;cursor: no-drop;"><span class="fa fa-wifi" style="font-size: 0.8rem;"></span><small>Wireline</small></button>
+      </div>
+    </div>
+    <div class="rating">
+      <ng-container *ngFor="let i of star">
+        <i class="fa fa-star"   [ngClass]="{'active':i<=rating}" style="cursor:no-drop;"></i>
+      
+      </ng-container>
+      <small style="margin-top: -4px;color: #FE4F70;"><small>{{rating}}/5 stars</small></small>
+    </div>
+      <div class="buttns" style="display: flex;">
+        <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;"><span class="fa fa-heart" style="font-size: 0.8rem;"></span><small>ADD TO WISHLIST</small></button>
+      <h6 style="cursor: pointer;color: #FE4F70;margin-top: 40px;margin-left: 200px;">Compare Plans</h6>
+      </div>
+    
+     
+        <div class="form-group pt-3" >
+          <div class="rating" style="margin-top: 20px;">
+            <h6 style="margin-top:-1px;color: #FE4F70;">RATE PLAN &nbsp;</h6>
+            <ng-container *ngFor="let i of star">
+              <i class="fa fa-star" (click)="updateRating(i)"   [ngClass]="{'active':i<=rate}"></i>
+            
+            </ng-container>
+            </div>
+          <div class="input-field" style="height: 80px;" >
+              <label>LEAVE A REVIEW</label>
+              <input type="text"   name="productname" required title="Comment"  />
+          </div>
+          <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 30px;"><small>SUBMIT</small></button>
+      </div>
+    </div>
+    
+      
+    <div class="tab" style="margin-right: -4px;margin-left: 30px;">
+      <table class="table">
+        <tr>
+          <th class="py-2"><span class="fa fa-product-hunt fa-xs"></span>PLAN NAME</th>
+          <td class="py-2">{{enterprise.eplanname}}</td>
+        </tr>
+       
+        <tr>
+          <th class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
+          <td class="py-2">₹{{enterprise.ecost}}</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
+          <td class="py-2">-{{enterprise.ediscount}}%</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-wifi fa-xs"></span>DATA</th>
+          <td class="py-2">{{enterprise.edata}} GB</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-tachometer fa-xs"></span>THROUGPUT</th>
+          <td class="py-2">upto {{enterprise.espeed}} Mbps</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-phone fa-xs"></span>VOIP</th>
+          <td class="py-2">{{enterprise.evoip}}</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-video-camera fa-xs"></span>VIDEO CONFERENCING</th>
+          <td class="py-2">{{enterprise.evideo}}</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-share-alt fa-xs"></span>MEDIA FILE SHARING</th>
+          <td class="py-2">{{enterprise.efilesharing}}</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-cloud fa-xs"></span>CLOUD APPLICATION USAGE</th>
+          <td class="py-2">{{enterprise.ecloud}}</td>
+        </tr>
+        
+        <tr>
+          <th class="py-2"><span class="fa fa-info-circle fa-xs"></span>DESCRIPTION</th>
+          <td class="py-2">{{enterprise.edescription}}</td>
+        </tr>    
+    </table>
+    </div>
+    
+    </div>
