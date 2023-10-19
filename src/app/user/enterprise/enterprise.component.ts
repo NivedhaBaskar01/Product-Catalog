@@ -14,7 +14,7 @@ export class EnterpriseComponent {
   allProvider : any 
   wirelessprovider : any
   wirelineprovider:any
-  constructor(private productservice:ProductserviceService,private planservice:PlanserviseService,private toast:ToastrService,private route:Router){}
+  constructor(private productservice:ProductserviceService,private planservice:PlanserviseService,private toast:ToastrService,private router:Router){}
 
   ngOnInit():void{
     this.getallEnterprise()
@@ -52,13 +52,10 @@ export class EnterpriseComponent {
       this.allProvider=data
      })
   }
-
-
-
-
-  moredetails(){
-   this.route.navigate(['/user/viewdetails']);
+  goto(id:any){
+    this.router.navigate(['/user/enterprise/'+id]);
   }
+
 
   imageUrl(url:any){
     return 'data:image/jpeg;base64,'+url;

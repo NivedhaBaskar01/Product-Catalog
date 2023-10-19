@@ -1,4 +1,448 @@
 
 
 <br><br><br><br> 
-<p>details-residential works!</p>
+<!-- <p>details-residential works!</p> -->
+
+<!-- Residential Wireline -->
+
+<div class="container" style="margin-top: 30px;display: flex;" *ngIf="residential.product.category=='Wireline'">
+    <div class="head">
+    <div class="row g-0" style="width: 470px;">
+        <div class="col-md-4">
+          <img [src]="imageUrl(residential.product.prod_image)" class="img-fluid start" style="border-top-left-radius: 10px;height: 60px; width: 135px;">
+        </div>
+        <div class="col-md-8" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);text-align: center;padding: 12px;height: 60px;">
+            <h6 class="card-title" style="color: white;">{{residential.rplanname}}</h6>
+        </div>
+    
+    </div>
+    <div class="head1">
+      <div class="discount" style="margin-top: 5px;" *ngIf="residential.rdiscount != null">-{{residential.rdiscount}}%</div>
+      <div class="price" style="display: flex;padding-top: 15px;">
+        <span id="sp"></span><h2>₹{{residential.rcost}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">+taxes</small>
+        <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 200px;cursor: no-drop;"><span class="fa fa-wifi" style="font-size: 0.8rem;"></span><small>Wireline</small></button>
+      </div>
+    </div>
+    <div class="rating">
+      <ng-container *ngFor="let i of star">
+        <i class="fa fa-star"   [ngClass]="{'active':i<=rating}" style="cursor:no-drop;"></i>
+      
+      </ng-container>
+      <small style="margin-top: -4px;color: #FE4F70;"><small>{{residential.product.rating}}/5 stars</small></small>
+    </div>
+      <div class="buttns" style="display: flex;">
+        <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;">
+            <span class="fa fa-heart" style="font-size: 0.8rem;"></span><small>ADD TO WISHLIST</small></button>
+        <button style="background: white;border: none;" data-bs-toggle="modal" data-bs-target="#rwirelinemodal">
+            <h6 style="cursor: pointer;color: #FE4F70;margin-top: 40px;margin-left: 200px;">Compare Plans</h6></button>
+      </div>
+    
+     
+        <div class="form-group pt-3" >
+          <div class="rating" style="margin-top: 20px;">
+            <h6 style="margin-top:-1px;color: #FE4F70;">RATE PLAN &nbsp;</h6>
+            <ng-container *ngFor="let i of star">
+              <i class="fa fa-star" (click)="updateRating(i)"   [ngClass]="{'active':i<=rate}"></i>
+            
+            </ng-container>
+            </div>
+          <div class="input-field" style="height: 80px;" >
+              <label>LEAVE A REVIEW</label>
+              <input  type="text"   name="productname" required title="Comment"  />
+          </div>
+          <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 30px;"><small>SUBMIT</small></button>
+      </div>
+    </div>
+    
+      
+    <div class="tab" style="margin-right: -4px;margin-left: 30px;">
+      <table class="table">
+        <tr>
+          <th class="py-2"><span class="fa fa-product-hunt fa-xs"></span>PLAN NAME</th>
+          <td class="py-2">{{residential.rplanname}}</td>
+        </tr>
+       
+        <tr>
+          <th class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
+          <td class="py-2">₹{{residential.rcost}}</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
+          <td class="py-2">{{residential.rdiscount}}%</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-wifi fa-xs"></span>DATA</th>
+          <td class="py-2">{{residential.rdata}} GB</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-calendar fa-xs"></span>VALIDITY</th>
+          <td class="py-2">{{residential.rvalidity}} Days</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED</th>
+          <td class="py-2">upto {{residential.rspeed}} Mbps</td>
+        </tr>
+       
+        <tr>
+          <th class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED POST FUP</th>
+          <td class="py-2">{{residential.rpostfup}} Mbps</td>
+        </tr>
+  
+        
+        <tr>
+          <th class="py-2"><span class="fa fa-commenting fa-xs"></span>SMS</th>
+          <td class="py-2">{{residential.rsms}} sms/day</td>
+        </tr>
+        <tr>
+          <th class="py-2"><span class="fa fa-television fa-xs"></span>SUBSCRIPTIONS</th>
+          <td class="py-2">{{residential.rsubscription}}</td>
+        </tr>
+       
+        
+        <tr>
+          <th class="py-2"><span class="fa fa-info-circle fa-xs"></span>DESCRIPTION</th>
+          <td class="py-2" >{{residential.rdescription}}</td>
+        </tr>
+        
+          
+    
+    </table>
+    </div>
+    
+    </div>
+  
+    <!-- modal residential wireline -->
+  <div class="modal fade" id="rwirelinemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="h51">COMPARE PLANS</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #compare="ngForm" (submit)="getComparePlan(compare.value)">
+            <div class="head" style="display: flex;margin-left: 28px;">
+                <h3 id="h31"  style="margin-bottom: 5%;margin-top: 20px;">SELECT PLAN TO COMPARE</h3>
+                
+                <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px; " >
+                    <div class="input-field" style="border: 1px solid gainsboro;">
+                        <span class="fa fa-product-hunt p-2"></span>
+                        
+                        <select  name="planid" id="category" [(ngModel)]="compareid">
+                            <option value="" disabled selected>Choose Plan </option>
+                            <option *ngFor="let plan of allResidential | filter: 'wireline'" value="{{plan.residentialId}}">{{plan.rplanname}}</option>           
+                        </select>
+                        
+                        
+                    </div>
+                </div>
+                
+
+<button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 20px;margin-top: 13px;"><small>COMPARE</small></button>
+           
+            </div>
+        </form>
+            <table class="table" id="table1" style="width: 1000px;">
+                <tr id="tablehead">
+                    <th id="th1" style="text-align: left;
+                    background:   #FE4F70 ;
+                    height: 50px;
+                    color: white;"><i class="fa fa-th-list" style="color: white;background:  #FE4F70"></i>FEATURES</th>
+                    <th id="headertag" style="color: white;">{{residential.rplanname}}</th>
+                    <th id="headertag" style="color: white;">{{compareplan?.rplanname}}</th>
+                </tr>
+            
+                <tr id="tr1">
+                    <th id="th1" class="py-2"><span class="fa fa-product-hunt fa-xs"></span>PLAN NAME</th>
+                    <td id="td1" class="py-2">{{residential.rplanname}}</td>
+                    <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rplanname}}</td>
+                  </tr>
+                 
+                  <tr id="tr1">
+                    <th id="th1"  class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
+                    <td id="td1" class="py-2">₹{{residential.rcost}}</td>
+                    <td  id="td1" class="py-2" *ngIf="compareplan!=undefined">₹{{compareplan?.rcost}}</td>
+                  </tr>
+                  <tr id="tr1">
+                    <th id="th1" class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
+                    <td id="td1"  class="py-2">{{residential.rdiscount}}%</td>
+                    <td id="td1"  class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rdiscount}}%</td>
+                  </tr>
+                  <tr id="tr1" >
+                    <th id="th1" class="py-2"><span class="fa fa-wifi fa-xs"></span>DATA</th>
+                    <td id="td1" class="py-2">{{residential.rdata}} GB</td>
+                    <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rdata}} GB</td>
+                  </tr>
+                  <tr id="tr1" >
+                    <th id="th1"  class="py-2"><span class="fa fa-calendar fa-xs"></span>VALIDITY</th>
+                    <td id="td1"  class="py-2">{{residential.rvalidity}} Days</td>
+                    <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rvalidity}} Days</td>
+                  </tr>
+                  <tr id="tr1" >
+                    <th id="th1" class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED</th>
+                    <td id="td1" class="py-2">upto {{residential.rspeed}} Mbps</td>
+                    <td id="td1" class="py-2" *ngIf="compareplan!=undefined">upto {{compareplan?.rspeed}} Mbps</td>
+                  </tr>
+                 
+                  <tr id="tr1" >
+                    <th id="th1" class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED POST FUP</th>
+                    <td id="td1" class="py-2">{{residential.rspeed}} Mbps</td>
+                    <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rspeed}}</td>
+                  </tr>
+            
+                  
+                  <tr id="tr1" >
+                    <th id="th1" class="py-2"><span class="fa fa-commenting fa-xs"></span>SMS</th>
+                    <td id="td1" class="py-2">{{residential.rsms}} sms/day</td>
+                    <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rsms}}</td>
+                  </tr>
+                  <tr id="tr1" >
+                    <th id="th1"  class="py-2"><span class="fa fa-television fa-xs"></span>SUBSCRIPTIONS</th>
+                    <td id="td1" class="py-2">{{residential.rsubscription}}</td>
+                    <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rsubscription}}</td>
+                  </tr>
+             
+                 
+                  
+                  <tr id="tr1" >
+                    <th id="th1"  class="py-2"><span class="fa fa-info-circle fa-xs"></span>DESCRIPTION</th>
+                    <td id="td1" class="py-2" >{{residential.rdescription}}</td>
+                    <td id="td1"  class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rdescription}}</td>
+                  </tr>
+                  
+                
+           
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+  
+    <!-- Resdientail Wireless -->
+  
+    <div class="container" style="margin-top: 30px;display: flex;" *ngIf="residential.product.category=='Wireless'">
+      <div class="head">
+      <div class="row g-0" style="width: 470px;">
+          <div class="col-md-4">
+            <img [src]="imageUrl(residential.product.prod_image)" class="img-fluid start" style="border-top-left-radius: 10px;height: 60px; width: 135px;">
+          </div>
+          <div class="col-md-8" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);text-align: center;padding: 12px;height: 60px;">
+              <h6 class="card-title" style="color: white;">{{residential.rplanname}}</h6>
+          </div>
+      
+      </div>
+      <div class="head1">
+        <div class="discount" style="margin-top: 5px;" *ngIf="residential.rdiscount != null">-{{residential.rdiscount}}%</div>
+        <div class="price" style="display: flex;padding-top: 15px;">
+          <span id="sp"></span><h2>₹{{residential.rcost}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">+taxes</small>
+          <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 200px;cursor: no-drop;"><span class="fa fa-wifi" style="font-size: 0.8rem;">
+        </span><small>Wireless</small></button>
+        </div>
+      </div>
+      <div class="rating">
+        <ng-container *ngFor="let i of star">
+          <i class="fa fa-star"   [ngClass]="{'active':i<=rating}" style="cursor:no-drop;"></i>
+        
+        </ng-container>
+        <small style="margin-top: -4px;color: #FE4F70;"><small>{{residential.product.rating}}/5 stars</small></small>
+      </div>
+        <div class="buttns" style="display: flex;">
+          <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;"><span class="fa fa-heart" style="font-size: 0.8rem;"></span>
+            <small>ADD TO WISHLIST</small></button>
+            <button style="background: white;border: none;" data-bs-toggle="modal" data-bs-target="#rwirelessmodal">
+                <h6 style="cursor: pointer;color: #FE4F70;margin-top: 40px;margin-left: 200px;">Compare Plans</h6></button>        </div>
+      
+       
+          <div class="form-group pt-3" >
+            <div class="rating" style="margin-top: 20px;">
+              <h6 style="margin-top:-1px;color: #FE4F70;">RATE PLAN &nbsp;</h6>
+              <ng-container *ngFor="let i of star">
+                <i class="fa fa-star" (click)="updateRating(i)"   [ngClass]="{'active':i<=rate}"></i>
+              
+              </ng-container>
+              </div>
+            <div class="input-field" style="height: 80px;" >
+                <label>LEAVE A REVIEW</label>
+                <input  type="text"   name="productname" required title="Comment"  />
+            </div>
+            <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 30px;"><small>SUBMIT</small></button>
+        </div>
+      </div>
+      
+        
+      <div class="tab" style="margin-right: -4px;margin-left: 30px;">
+        <table class="table">
+          <tr>
+            <th class="py-2"><span class="fa fa-product-hunt fa-xs"></span>PLAN NAME</th>
+            <td class="py-2">{{residential.rplanname}}</td>
+          </tr>
+         
+          <tr>
+            <th class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
+            <td class="py-2">₹{{residential.rcost}}</td>
+          </tr>
+          <tr>
+            <th class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
+            <td class="py-2">{{residential.rdiscount}}%</td>
+          </tr>
+          <tr>
+            <th class="py-2"><span class="fa fa-wifi fa-xs"></span>DATA</th>
+            <td class="py-2">{{residential.rdata}} GB</td>
+          </tr>
+          <tr>
+            <th class="py-2"><span class="fa fa-calendar fa-xs"></span>VALIDITY</th>
+            <td class="py-2">{{residential.rvalidity}} Days</td>
+          </tr>
+          <tr>
+            <th class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED</th>
+            <td class="py-2">upto {{residential.rspeed}} Mbps</td>
+          </tr>
+         
+          <tr>
+            <th class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED POST FUP</th>
+            <td class="py-2">{{residential.rpostfup}} Mbps</td>
+          </tr>
+    
+          
+          <tr>
+            <th class="py-2"><span class="fa fa-commenting fa-xs"></span>SMS</th>
+            <td class="py-2">{{residential.rsms}} sms/day</td>
+          </tr>
+          <tr>
+            <th class="py-2"><span class="fa fa-television fa-xs"></span>SUBSCRIPTIONS</th>
+            <td class="py-2">{{residential.rsubscription}}</td>
+          </tr>
+          <tr>
+            <th class="py-2"><span class="fa fa-volume-control-phone fa-xs"></span>WIFI CALLING</th>
+            <td class="py-2">{{residential.rwcall}}</td>
+          </tr>
+          <tr>
+            <th class="py-2"><span class="fa fa-mobile fa-xs"></span>HOTSPOT</th>
+            <td class="py-2">Upto {{residential.rhotspot}} devices</td>
+          </tr>
+         
+          
+          <tr>
+            <th class="py-2"><span class="fa fa-info-circle fa-xs"></span>DESCRIPTION</th>
+            <td class="py-2" >{{residential.rdescription}}</td>
+          </tr>
+          
+            
+      
+      </table>
+      </div>
+      
+      </div>
+
+      <!--Residential modal wireless -->
+    <div class="modal fade" id="rwirelessmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="h51">COMPARE PLANS</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #compare="ngForm" (submit)="getComparePlan(compare.value)">
+                    <div class="head" style="display: flex;margin-left: 28px;">
+                        <h3 id="h31"  style="margin-bottom: 5%;margin-top: 20px;">SELECT PLAN TO COMPARE</h3>                       
+                        <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px; " >
+                            <div class="input-field" style="border: 1px solid gainsboro;">
+                                <span class="fa fa-product-hunt p-2"></span>                               
+                                <select  name="planid" id="category" [(ngModel)]="compareid">
+                                    <option value="" disabled selected>Choose Plan </option>
+                                    <option *ngFor="let plan of allResidential | filter: 'wireless'" value="{{plan.residentialId}}">{{plan.rplanname}}</option>           
+                                </select>  
+                            </div>
+                        </div>
+        <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 20px;margin-top: 13px;">
+            <small>COMPARE</small></button>                  
+                    </div>
+                </form>
+                <table class="table" id="table1" style="width: 1000px;">
+                    <tr id="tablehead">
+                        <th style="text-align: left;
+                        background:   #FE4F70 ;
+                        height: 50px;
+                        color: white;"><i class="fa fa-th-list" style="color: white;background:  #FE4F70"></i>FEATURES</th>
+                        <th id="headertag" style="color: white;">{{residential.rplanname}}</th>
+                        <th id="headertag" style="color: white;">{{compareplan?.rplanname}}</th>
+                    </tr>
+                
+                    <tr id="tr1">
+                        <th id="th1" class="py-2"><span class="fa fa-product-hunt fa-xs"></span>PLAN NAME</th>
+                        <td id="td1" class="py-2">{{residential.rplanname}}</td>
+                        <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rplanname}}</td>
+                      </tr>
+                     
+                      <tr id="tr1">
+                        <th id="th1"  class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
+                        <td id="td1" class="py-2">₹{{residential.rcost}}</td>
+                        <td  id="td1" class="py-2" *ngIf="compareplan!=undefined">₹{{compareplan?.rcost}}</td>
+                      </tr>
+                      <tr id="tr1">
+                        <th id="th1" class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
+                        <td id="td1"  class="py-2">{{residential.rdiscount}}%</td>
+                        <td id="td1"  class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rdiscount}}%</td>
+                      </tr>
+                      <tr id="tr1" >
+                        <th id="th1" class="py-2"><span class="fa fa-wifi fa-xs"></span>DATA</th>
+                        <td id="td1" class="py-2">{{residential.rdata}} GB</td>
+                        <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rdata}} GB</td>
+                      </tr>
+                      <tr id="tr1" >
+                        <th id="th1"  class="py-2"><span class="fa fa-calendar fa-xs"></span>VALIDITY</th>
+                        <td id="td1"  class="py-2">{{residential.rvalidity}} Days</td>
+                        <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rvalidity}} Days</td>
+                      </tr>
+                      <tr id="tr1" >
+                        <th id="th1" class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED</th>
+                        <td id="td1" class="py-2">upto {{residential.rspeed}} Mbps</td>
+                        <td id="td1" class="py-2" *ngIf="compareplan!=undefined">upto {{compareplan?.rspeed}} Mbps</td>
+                      </tr>
+                     
+                      <tr id="tr1" >
+                        <th id="th1" class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED POST FUP</th>
+                        <td id="td1" class="py-2">{{residential.rpostfup}} Mbps</td>
+                        <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rpostfup}} Mbps</td>
+                      </tr>
+                
+                      
+                      <tr id="tr1" >
+                        <th id="th1" class="py-2"><span class="fa fa-commenting fa-xs"></span>SMS</th>
+                        <td id="td1" class="py-2">{{residential.rsms}} sms/day</td>
+                        <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rsms}} sms/day</td>
+                      </tr>
+                      <tr id="tr1" >
+                        <th id="th1"  class="py-2"><span class="fa fa-television fa-xs"></span>SUBSCRIPTIONS</th>
+                        <td id="td1" class="py-2">{{residential.rsubscription}}</td>
+                        <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rsubscription}}</td>
+                      </tr>
+                      <tr id="tr1" >
+                        <th id="th1" class="py-2"><span class="fa fa-volume-control-phone fa-xs"></span>WIFI CALLING</th>
+                        <td id="td1" class="py-2">{{residential.rwcall}}</td>
+                        <td id="td1" class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rwcall}}</td>
+                      </tr>
+                      <tr id="tr1" >
+                        <th id="th1" class="py-2"><span class="fa fa-mobile fa-xs"></span>HOTSPOT</th>
+                        <td id="td1" class="py-2">Upto {{residential.rhotspot}} devices</td>
+                        <td id="td1" class="py-2" *ngIf="compareplan!=undefined">Upto {{compareplan?.rhotspot}} devices</td>
+                      </tr>
+                     
+                      
+                      <tr id="tr1" >
+                        <th id="th1"  class="py-2"><span class="fa fa-info-circle fa-xs"></span>DESCRIPTION</th>
+                        <td id="td1" class="py-2" >{{residential.rdescription}}</td>
+                        <td id="td1"  class="py-2" *ngIf="compareplan!=undefined">{{compareplan?.rdescription}}</td>
+                      </tr>
+                      
+                    
+               
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    

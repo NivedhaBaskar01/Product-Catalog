@@ -12,6 +12,9 @@ export class DetailsEnterpriseComponent {
 
   id:any
   enterprise:any
+  compareid:any
+  compareplan:any
+  allEnterprise:any=[]
 
   star=[1,2,3,4,5];
   rating=3;
@@ -28,8 +31,18 @@ export class DetailsEnterpriseComponent {
       this.enterprise=data
       console.log(this.enterprise)
     })
-  }
 
+    this.planservice.getAllEnterprise().subscribe(data=>{
+      this.allEnterprise=data
+    })
+  }
+  getComparePlan(form:any){
+    console.log(form,this.compareid)
+    this.planservice.getEnterpriseById(this.compareid).subscribe(data=>{
+      this.compareplan = data
+      console.log(this.compareplan)
+    })
+  }
   imageUrl(url:any){
     return 'data:image/jpeg;base64,'+url;
   }

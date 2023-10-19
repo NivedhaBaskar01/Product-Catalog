@@ -10,6 +10,9 @@ import { PlanserviseService } from 'src/app/planservise.service';
 export class DetailsBusinessComponent {
   id:any
   business:any
+  compareid:any
+  compareplan:any
+  allBusiness:any=[]
 
   star=[1,2,3,4,5];
   rating=3;
@@ -26,8 +29,18 @@ export class DetailsBusinessComponent {
       this.business=data
       console.log(this.business)
     })
+    this.planservice.getAllBusiness().subscribe(data=>{
+      this.allBusiness=data
+    })
   }
-
+  getComparePlan(form:any){
+    console.log(form,this.compareid)
+    this.planservice.getBusinessById(this.compareid).subscribe(data=>{
+      this.compareplan = data
+      console.log(this.compareplan)
+    })
+    
+  }
   imageUrl(url:any){
     return 'data:image/jpeg;base64,'+url;
   }

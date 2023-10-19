@@ -17,6 +17,8 @@ import { AboutComponent } from './about/about.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './footer/footer.component';
+import { SearchComponent } from './search/search.component';
+import { CustomFilterPipe } from './custom-filter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { FooterComponent } from './footer/footer.component';
     PreloaderComponent,
     NavComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    SearchComponent,
+    CustomFilterPipe,
   
   ],
   imports: [

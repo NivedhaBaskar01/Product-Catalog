@@ -1,11 +1,17 @@
 <!-- <p>business works!</p> -->
 <br><br><br>
 
+<div class="outer" style="height: 500px;">
+  <video width="100%" [muted]="'muted'" loop autoplay ><source src="assets\business.mp4" type="video/mp4" /></video>
+  <a id="a" href="http://localhost:4200/user/business#plans" style="position: absolute;margin-left: -1130px;margin-top: 400px;">EXPLORE PLANS</a>
+</div>
 <!-- Business Wireline -->
+<div id="plans" >
+  <br><br><br>
 <div id="heading">
   <h5 id="headtxt">WIRELINE PLANS</h5>
   <div class="filter">
-    <i class="fa fa-filter"></i>&nbsp;
+    <i class="fa fa-filter">&nbsp;Filter : </i>&nbsp;
     <select [(ngModel)]="wirelineprovider">
       <option value="" disabled selected>Select Provider</option>
       <option value="">None</option>
@@ -13,14 +19,16 @@
     </select>
   </div>
 </div>
-<div class="container">
+<div class="contain">
   <div style="float: left">
       <button id="navbtn" style="left: 0;" (click)="scrollLeftwireline()"><i class="fa fa-chevron-left"></i></button>
   </div>
 <div #widgetswireline class="middle">
-
+  <div class="middle" *ngIf="(allBusiness | filter : 'Wireline' | filter: wirelineprovider).length == 0"> 
+    <h4 style="padding: 150px;margin-left: 24%;">No Plans Available...</h4>
+  </div>
   <div class="info-widget" *ngFor="let product of allBusiness | filter : 'Wireline' | filter: wirelineprovider">
-<div class="cont"  style="height:405px;width:380px;border:1px solid;border-radius: 10px;border-color:gainsboro; margin-left: 10px;margin-top: 10px;">
+<div class="cont"  style="height:408px;width:380px;border:1px solid;border-radius: 10px;border-color:gainsboro; margin-left: 8px;margin-top: 10px;margin-right: 12px;">
     <div class="header" style="height: 50px;">
             <div class="row g-0">
                 <div class="col-md-4">
@@ -74,7 +82,8 @@
               </div>
               <div class="more" style="margin-top: -10px;">
                 
-                <button type="submit" class="btn btn-primary btn-block mt-4 w-100" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;"><i class="fa fa-info-circle fa-lg"></i>&nbsp;MORE DETAILS</button>
+                <button type="submit" (click)="goto(product.businessId)" class="btn btn-primary btn-block mt-4 w-100" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;cursor: pointer;">
+               <i class="fa fa-info-circle fa-lg"></i>&nbsp;MORE DETAILS</button>
               </div>
             </div>
      </div>
@@ -93,7 +102,7 @@
     <div id="heading">
       <h5 id="headtxt">WIRELESS PLANS</h5>
       <div class="filter">
-        <i class="fa fa-filter"></i>&nbsp;
+        <i class="fa fa-filter">&nbsp;Filter : </i>&nbsp;
         <select [(ngModel)]="wirelessprovider">
           <option value="" disabled selected>Select Provider</option>
           <option value="">None</option>
@@ -101,12 +110,14 @@
         </select>
       </div>
     </div>  
-    <div class="container">
+    <div class="contain">
       <div style="float: left">
           <button id="navbtn1" style="left: 0;" (click)="scrollLeftwireless()"><i class="fa fa-chevron-left"></i></button>
       </div>
     <div #widgetwireless class="middle">
-    
+      <div class="middle" *ngIf="(allBusiness | filter : 'Wireless' | filter: wirelessprovider).length == 0"> 
+        <h4 style="padding: 150px;margin-left: 24%;">No Plans Available...</h4>
+      </div>
       <div class="info-widget" *ngFor="let product of allBusiness | filter : 'Wireless' | filter :  wirelessprovider">
     
      <div class="cont" style="height:400px;width:380px;border:1px solid;border-radius: 10px;border-color:gainsboro; margin-left: 10px;margin-top: 10px;">
@@ -162,7 +173,8 @@
                 </div>
                 <div class="more" style="margin-top: -10px;">
                   
-                  <button type="submit" class="btn btn-primary btn-block mt-4 w-100" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;"><i class="fa fa-info-circle fa-lg"></i>&nbsp;MORE DETAILS</button>
+                  <button type="submit" (click)="goto(product.businessId)" class="btn btn-primary btn-block mt-4 w-100" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;cursor: pointer;">
+                    <i class="fa fa-info-circle fa-lg"></i>&nbsp;MORE DETAILS</button>
                 </div>
               </div>
        </div> 
@@ -172,3 +184,5 @@
      <button id="navbtn2" style="right: 0;" (click)="scrollRightwireless()"><i class="fa fa-chevron-right"></i></button>
  </div>
  </div> 
+
+</div>

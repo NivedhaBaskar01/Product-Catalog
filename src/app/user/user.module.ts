@@ -5,11 +5,12 @@ import { UserRoutingModule } from './user-routing.module';
 import { BusinessComponent } from './business/business.component';
 import { EnterpriseComponent } from './enterprise/enterprise.component';
 import { ResidentialComponent } from './residential/residential.component';
-import { CustomFilterPipe } from './custom-filter-pipe.pipe';
+// import { CustomFilterPipe } from './custom-filter-pipe.pipe';
 import { DetailsEnterpriseComponent } from './details-enterprise/details-enterprise.component';
 import { DetailsBusinessComponent } from './details-business/details-business.component';
 import { DetailsResidentialComponent } from './details-residential/details-residential.component';
 import { FormsModule } from '@angular/forms';
+import { CustomFilterPipe } from './custom-filter-pipe.pipe';
 
 
 @NgModule({
@@ -17,10 +18,11 @@ import { FormsModule } from '@angular/forms';
     BusinessComponent,
     EnterpriseComponent,
     ResidentialComponent,
-    CustomFilterPipe,
+    // CustomFilterPipe,
     DetailsEnterpriseComponent,
     DetailsBusinessComponent,
     DetailsResidentialComponent,
+    CustomFilterPipe,
   ],
   imports: [
     CommonModule,

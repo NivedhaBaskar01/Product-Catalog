@@ -10,6 +10,11 @@ import { PlanserviseService } from 'src/app/planservise.service';
 export class DetailsResidentialComponent {
   id:any
   residential:any
+  allResidential:any = []
+  compareid:any
+
+  compareplan:any
+
 
   star=[1,2,3,4,5];
   rating=3;
@@ -25,6 +30,18 @@ export class DetailsResidentialComponent {
     this.planservice.getResidentialById(this.id).subscribe(data=>{
       this.residential=data
       console.log(this.residential)
+    })
+     
+    this.planservice.getAllResidential().subscribe(data=>{
+      this.allResidential = data;
+    })
+  }
+
+  getComparePlan(form:any){
+    console.log(form,this.compareid)
+    this.planservice.getResidentialById(this.compareid).subscribe(data=>{
+      this.compareplan = data
+      console.log(this.compareplan)
     })
   }
 

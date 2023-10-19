@@ -33,13 +33,14 @@
             </ul>
             <div class="header-buttons">
 
-                <form class="d-flex" role="search">
-                    <input class="form-control me-auto" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" autocomplete="off" #searchform="ngForm" (submit)="gotoSearch(searchform.value)">
+                    <input [(ngModel)]="searchtxt" name="searchtxt" class="form-control me-auto" type="text" placeholder="Search" aria-label="Search">
                     <span>
-                        <button class="search icon-button">
+                        <button type="submit" class="search icon-button">
                             <i class="fa fa-search"></i>
                         </button></span>
                 </form>
+
                 <a class="nav-link" *ngIf="userservice.isLogged" (click)="userservice.logout()" id="logout">Logout</a>  
             </div>
         </div>
@@ -82,10 +83,10 @@
         <div class="header-right">
             <div class="header-buttons">
 
-                <form class="d-flex" role="search">
-                    <input class="form-control me-auto" type="search" placeholder="Search" aria-label="Search" id="search">
+                <form class="d-flex" role="search" autocomplete="off" #searchform="ngForm" (submit)="gotoSearch(searchform.value)">
+                    <input [(ngModel)]="searchtxt" name="searchtxt"   class="form-control me-auto" type="text" placeholder="Search" aria-label="Search" id="search">
                     <span>
-                        <button class="search icon-button" id="search1">
+                        <button type="submit" class="search icon-button" id="search1">
                             <i class="fa fa-search"></i>
                         </button></span>
                 </form>
@@ -126,10 +127,10 @@
 <div class="header-right">
     <div class="header-buttons">
 
-        <form class="d-flex" role="search">
-            <input class="form-control me-auto" type="search" placeholder="Search" aria-label="Search" id="search">
+        <form class="d-flex" role="search" #searchform="ngForm" (submit)="gotoSearch(searchform.value)" autocomplete="off">
+            <input [(ngModel)]="searchtxt" name="searchtxt"  class="form-control me-auto" type="text" placeholder="Search" aria-label="Search" id="search">
             <span>
-                <button class="search icon-button" id="search1">
+                <button type="submit" class="search icon-button" id="search1">
                     <i class="fa fa-search"></i>
                 </button></span>
         </form>

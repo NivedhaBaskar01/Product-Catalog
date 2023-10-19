@@ -7,4 +7,5 @@ export class Product{
    classification  : string = "";
    provider : string  = "";
    prod_image : File | undefined;
+   rating : number = 0;
 }

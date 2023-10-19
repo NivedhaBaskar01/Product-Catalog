@@ -7,6 +7,7 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
   {
     path:"user",
     loadChildren:()=> import('./user/user.module').then((m) => m.UserModule)
+  },
+  {
+    path:"search/:id",
+    component:SearchComponent
   }
   
 ];
