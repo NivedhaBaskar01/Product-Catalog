@@ -10,16 +10,19 @@
                         <li><a class="dropdown-item" routerLink='/adminlogin'>Admin</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#">Pages</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="">Category</a></li>
                         <li><a class="dropdown-item" href="">About</a></li>
                         <li><a class="dropdown-item" href="">Contact</a></li>
                     </ul>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:4200/#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/about">About</a>
+                    <a class="nav-link" href="http://localhost:4200/#about">Contact</a>
                 </li>
             </ul>
         </div>
@@ -54,7 +57,7 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown active">
-                    <a class="nav-link " routerLink='/home'>Home</a>
+                    <a class="nav-link " routerLink='/admin/adminhome'>Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#">Action</a>
@@ -83,14 +86,14 @@
         <div class="header-right">
             <div class="header-buttons">
 
-                <form class="d-flex" role="search" autocomplete="off" #searchform="ngForm" (submit)="gotoSearch(searchform.value)">
+                <!-- <form class="d-flex" role="search" autocomplete="off" #searchform="ngForm" (submit)="gotoSearch(searchform.value)">
                     <input [(ngModel)]="searchtxt" name="searchtxt"   class="form-control me-auto" type="text" placeholder="Search" aria-label="Search" id="search">
                     <span>
                         <button type="submit" class="search icon-button" id="search1">
                             <i class="fa fa-search"></i>
                         </button></span>
-                </form>
-                <a class="nav-link" (click)="userservice.logout()" id="logout">Logout</a>
+                </form> -->
+                <a class="nav-link" style="height: 35px;margin-left: 2%; width: 80px;margin-top: 4%;" (click)="userservice.logout()" id="logout">Logout</a>
                 <!-- <a class="nav-link" *ngIf="userservice.isLogged" (click)="userservice.logout()" id="logout">Logout</a>                 -->
             </div>
         </div>
@@ -106,7 +109,10 @@
         <li class="nav-item dropdown active">
             <a class="nav-link " routerLink='/home'>Home</a>
         </li>
-        <li class="nav-item dropdown">
+        <li><a class="dropdown-item" href="http://localhost:4200/user/residential">Residential</a></li>
+                <li><a class="dropdown-item" href="http://localhost:4200/user/business">Business</a></li>
+                <li><a class="dropdown-item" href="http://localhost:4200/user/enterprise">Enterprise</a></li>
+        <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#">Services</a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" routerLink="/user/residential">Residential</a></li>
@@ -120,7 +126,7 @@
                 <li><a class="dropdown-item" >Plans</a></li>
                 <li><a class="dropdown-item" >Providers</a></li>
             </ul>
-        </li>
+        </li> -->
     </ul>
 </div>
 

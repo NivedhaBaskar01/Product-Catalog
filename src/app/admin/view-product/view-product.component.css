@@ -1,8 +1,7 @@
-tr:hover{
-  background-color: #FFA387;
-}
+
 tr{
   text-align: center;
+  border: 1px solid gainsboro;
 }
 th{
   font-weight:500;

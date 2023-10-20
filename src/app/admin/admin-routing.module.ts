@@ -6,11 +6,13 @@ import { AddPlanComponent } from './add-plan/add-plan.component';
 import { UpdateBusinessComponent } from './update-business/update-business.component';
 import { UpdateEnterpriseComponent } from './update-enterprise/update-enterprise.component';
 import { UpdateResidentialComponent } from './update-residential/update-residential.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 
 const routes: Routes = [
   { path:'viewproduct', component:ViewProductComponent,
  },
+ {path:'adminhome',component:AdminhomeComponent},
  {path : 'addproduct',component:AddProductComponent},
  {path: 'addplan' ,component:AddPlanComponent},
  {path: 'updatebusiness',component:UpdateBusinessComponent},

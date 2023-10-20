@@ -1,4 +1,5 @@
 <!-- <p>footer works!</p> -->
+<div *ngIf="getRole()!='admin'">
 <footer class="text-center text-white" style="background:whitesmoke;">
     <!-- Grid container -->
     <div class="container pt-4">
@@ -58,7 +59,8 @@
     <!-- Copyright -->
     <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2023 Copyright:
-      <a class="text-dark" routerLink="/home">ProCatalog</a>
+      <a class="text-dark" href="http://localhost:4200/">ProCatalog</a>
     </div>
     <!-- Copyright -->
   </footer>
+  </div>

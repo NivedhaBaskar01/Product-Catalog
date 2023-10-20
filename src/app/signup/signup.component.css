@@ -2,6 +2,11 @@
 .outer{
   height:auto;
   width: 100%;
+  background-image:url("src\assets\signupimg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 120vh;
   /*background-color:azure
   background-size: cover;
   background-position: center; */
@@ -27,7 +32,7 @@ a{
 }
 
 .custom-panel{
-  height:80%;
+  /* height:80%; */
   
   /* box-shadow:5px 10px #888888; */
 
@@ -79,7 +84,7 @@ background: -webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);
 .parent-panel{
   border-radius: 20px;
   background-color: white;
-  margin-top: 10%;
+  margin-top: -1%;
   margin-left: 50%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   /* box-shadow:5px 10px black; */

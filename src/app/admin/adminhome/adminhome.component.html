@@ -1,0 +1,52 @@
+<!-- <p>adminhome works!</p> -->
+<!--  admin home -->
+<br><br><br><br>
+<div *ngIf="getRole()=='admin'">
+  <div class="head">
+    <h2>ADMIN DASHBOARD</h2>
+    </div>
+    <div class="bottom" >
+        <div class="card" routerLink="/admin/addproduct">
+            <div class="content" >
+                <i class="fa fa-plus" ></i>
+                <h4>ADD CATEGORY</h4>
+                
+            </div>   
+        </div>
+        <div class="card" routerLink="/admin/addplan">
+            <div class="content" >
+                <i class="fa fa-plus-square-o" ></i>
+                <h4 style="padding-left: 60px;">ADD PLANS</h4>
+                
+            </div>   
+        </div>
+        <div class="card" style="width: 260px;" routerLink="/admin/viewproduct">
+            <div class="content" >
+                <i class="fa fa-pencil-square" ></i>
+                <h4 style="padding-left: 20px;">UPDATE CATEGORY</h4>
+                
+            </div>   
+        </div>
+        <!-- <div class="card" >
+            <div class="content" >
+                <i class="fa fa-pencil" ></i>
+                <h4>UPDATE PLANS</h4>
+                
+            </div>   
+        </div> -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <i class="fa fa-pencil" style="margin-left: -100px;" ></i>
+                <h4 style="margin-left: -40px;" >UPDATE PLANS</h4>
+              </div>
+              <div class="flip-card-back">
+                <a routerLink="/admin/updateenterprise">ENTERPRISE</a><br>
+                <a routerLink="/admin/updatebusiness">BUSINESS</a><br>
+                <a routerLink="/admin/updateresidential">RESIDENTIAL</a>
+              </div>
+            </div>
+          </div>
+    </div>
+      
+</div>

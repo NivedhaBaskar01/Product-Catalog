@@ -30,7 +30,7 @@
 </div>
   <div class="buttns" style="display: flex;">
     <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;"><span class="fa fa-heart" style="font-size: 0.8rem;"></span><small>ADD TO WISHLIST</small></button>
-  <h6 style="cursor: pointer;color: #FE4F70;margin-top: 40px;margin-left: 200px;">Compare Plans</h6>
+    <button style="background: white;border: none;" data-bs-toggle="modal" data-bs-target="#emodalwireless"><h6 style="cursor: pointer;color: #FE4F70;margin-top: 40px;margin-left: 200px;">Compare Plans</h6></button>
   </div>
 
  
@@ -46,7 +46,8 @@
           <label>LEAVE A REVIEW</label>
           <input type="text"   name="productname" required title="Comment"  />
       </div>
-      <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;"><small>SUBMIT</small></button>
+      <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;">
+        <small>SUBMIT</small></button>
   </div>
 </div>
 
@@ -60,7 +61,7 @@
    
     <tr>
       <th class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
-      <td class="py-2">₹{{enterprise.ecost}}</td>
+      <td class="py-2">₹{{enterprise.efinalPrice}}</td>
     </tr>
     <tr>
       <th class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
@@ -114,6 +115,99 @@
 
 </div>
 
+<!-- modal wireless -->
+<div class="modal fade" id="emodalwireless" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="h51">COMPARE PLANS</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #compare="ngForm" (submit)="getComparePlan(compare.value)">
+          <div class="head" style="display: flex;margin-left: 28px;">
+              <h3 id="h31"  style="margin-bottom: 5%;margin-top: 20px;">SELECT PLAN TO COMPARE</h3>                       
+              <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px; " >
+                  <div class="input-field" style="border: 1px solid gainsboro;">
+                      <span class="fa fa-product-hunt p-2"></span>                               
+                      <select  name="planid" id="category" [(ngModel)]="compareid">
+                          <option value="" disabled selected>Choose Plan </option>
+                          <option *ngFor="let plan of allEnterprise | filter: 'wireless'" value="{{plan.enterpriseId}}">{{plan.eplanname}}</option>           
+                      </select>  
+                  </div>
+              </div>
+<button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 20px;margin-top: 13px;">
+  <small>COMPARE</small></button>                  
+          </div>
+      </form>
+          <table class="table" id="table1" style="width: 1000px;">
+              <tr id="tablehead">
+                  <th id="th1"  style="text-align: left;
+                  background:   #FE4F70 ;
+                  height: 50px;width: 300px;
+                  color: white;"><i class="fa fa-th-list" style="color: white;background:  #FE4F70"></i>FEATURES</th>
+                  <th id="headertag" style="color: white;">{{enterprise.eplanname}}</th>
+                  <th id="headertag" style="color: white;" *ngIf="compareplan != undefined">{{compareplan?.eplanname}}</th>
+              </tr>
+          
+              <tr id="tr1">
+                  <th id="th1" class="py-2"><span class="fa fa-product-hunt fa-xs"></span>PLAN NAME</th>
+                  <td id="td1" class="py-2">{{enterprise.eplanname}}</td>
+                  <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.eplanname}}</td>
+                </tr>
+               
+                <tr id="tr1">
+                  <th id="th1"  class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
+                  <td id="td1" class="py-2">₹{{enterprise.efinalPrice}}</td>
+                  <td  id="td1" class="py-2" *ngIf="compareplan != undefined">₹{{compareplan?.efinalPrice}}</td>
+                </tr>
+                <tr id="tr1">
+                  <th id="th1" class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
+                  <td id="td1"  class="py-2">{{enterprise.ediscount}}%</td>
+                  <td id="td1"  class="py-2" *ngIf="compareplan != undefined">{{compareplan?.ediscount}}%</td>
+                </tr>
+                <tr id="tr1" >
+                  <th id="th1" class="py-2"><span class="fa fa-wifi fa-xs"></span>DATA</th>
+                  <td id="td1" class="py-2">{{enterprise.edata}} GB</td>
+                  <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.edata}} GB</td>
+                </tr>
+               
+                <tr id="tr1" >
+                  <th id="th1" class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED</th>
+                  <td id="td1" class="py-2">upto {{enterprise.espeed}} Mbps</td>
+                  <td id="td1" class="py-2" *ngIf="compareplan != undefined">upto {{compareplan?.espeed}} Mbps</td>
+                </tr>
+                <tr id="tr1" >
+                  <th id="th1" class="py-2"><span class="fa fa-phone fa-xs"></span>VOIP</th>
+                  <td id="td1" class="py-2">{{enterprise.evoip}}</td>
+                  <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.evoip}}</td>
+                </tr>
+                <tr id="tr1" >
+                  <th id="th1" class="py-2"><span class="fa fa-video-camera fa-xs"></span>VIDEO CONFERENCING</th>
+                  <td id="td1" class="py-2">{{enterprise.evideo}}</td>
+                  <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.evideo}}</td>
+                </tr>
+                <tr id="tr1" >
+                  <th id="th1" class="py-2"><span class="fa fa-share-alt fa-xs"></span>MEDIA FILE SHARING</th>
+                  <td id="td1" class="py-2">{{enterprise.efilesharing}}</td>
+                  <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.efilesharing}}</td>
+                </tr>
+                <tr id="tr1" >
+                  <th id="th1" class="py-2"><span class="fa fa-cloud fa-xs"></span>CLOUD APPLICATION USAGE</th>
+                  <td id="td1" class="py-2">{{enterprise.ecloud}}</td>
+                  <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.ecloud}}</td>
+                </tr>
+
+                <tr id="tr1" >
+                  <th id="th1"  class="py-2"><span class="fa fa-info-circle fa-xs"></span>DESCRIPTION</th>
+                  <td id="td1" class="py-2" >{{enterprise.edescription}}</td>
+                  <td id="td1"  class="py-2" *ngIf="compareplan != undefined">{{compareplan?.edescription}}</td>
+                </tr>         
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Enterprise Wireline -->
 
@@ -144,7 +238,8 @@
     </div>
       <div class="buttns" style="display: flex;">
         <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;"><span class="fa fa-heart" style="font-size: 0.8rem;"></span><small>ADD TO WISHLIST</small></button>
-      <h6 style="cursor: pointer;color: #FE4F70;margin-top: 40px;margin-left: 200px;">Compare Plans</h6>
+        <button style="background: white;border: none;" data-bs-toggle="modal" data-bs-target="#emodalwireline">
+          <h6 style="cursor: pointer;color: #FE4F70;margin-top: 40px;margin-left: 200px;">Compare Plans</h6></button>
       </div>
     
      
@@ -174,7 +269,7 @@
        
         <tr>
           <th class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
-          <td class="py-2">₹{{enterprise.ecost}}</td>
+          <td class="py-2">₹{{enterprise.efinalPrice}}</td>
         </tr>
         <tr>
           <th class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
@@ -212,4 +307,116 @@
     </table>
     </div>
     
+    </div>
+
+    <!-- modal wireline-->
+    <div class="modal fade" id="emodalwireline" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="h51">COMPARE PLANS</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form #compare="ngForm" (submit)="getComparePlan(compare.value)">
+              <div class="head" style="display: flex;margin-left: 28px;">
+                  <h3 id="h31"  style="margin-bottom: 5%;margin-top: 20px;">SELECT PLAN TO COMPARE</h3>                       
+                  <div class="form-group pt-3 " style="margin-top: -28px; margin-left: 15px;width: 400px; " >
+                      <div class="input-field" style="border: 1px solid gainsboro;">
+                          <span class="fa fa-product-hunt p-2"></span>                               
+                          <select  name="planid" id="category" [(ngModel)]="compareid">
+                              <option value="" disabled selected>Choose Plan </option>
+                              <option *ngFor="let plan of allEnterprise | filter: 'wireline'" value="{{plan.enterpriseId}}">{{plan.eplanname}}</option>           
+                          </select>  
+                      </div>
+                  </div>
+    <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 20px;margin-top: 13px;">
+      <small>COMPARE</small></button>                  
+              </div>
+          </form>
+              <table class="table" id="table1" style="width: 1000px;">
+                  <tr id="tablehead">
+                      <th id="th1" style="text-align: left;
+                      background:   #FE4F70 ;
+                      height: 50px;width: 300px;
+                      color: white;"><i class="fa fa-th-list" style="color: white;background:  #FE4F70"></i>FEATURES</th>
+                      <th id="headertag" style="color: white;">{{enterprise.eplanname}}</th>
+                      <th id="headertag" style="color: white;" *ngIf="compareplan != undefined">{{compareplan?.eplanname}}</th>
+                  </tr>
+              
+                  <tr id="tr1">
+                      <th id="th1" class="py-2"><span class="fa fa-product-hunt fa-xs"></span>PLAN NAME</th>
+                      <td id="td1" class="py-2">{{enterprise.eplanname}}</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.eplanname}}</td>
+                    </tr>
+                   
+                    <tr id="tr1">
+                      <th id="th1"  class="py-2" style="margin-left: 50px;"><span class="fa fa-rupee fa-lg" ></span>COST</th>
+                      <td id="td1" class="py-2">₹{{enterprise.efinalPrice}}</td>
+                      <td  id="td1" class="py-2" *ngIf="compareplan != undefined">₹{{compareplan?.efinalPrice}}</td>
+                    </tr>
+                    <tr id="tr1">
+                      <th id="th1" class="py-2"><span class="fa fa-percent fa-xs"></span>DISCOUNT</th>
+                      <td id="td1"  class="py-2">{{enterprise.ediscount}}%</td>
+                      <td id="td1"  class="py-2" *ngIf="compareplan != undefined">{{compareplan?.ediscount}}%</td>
+                    </tr>
+                    <tr id="tr1" >
+                      <th id="th1" class="py-2"><span class="fa fa-wifi fa-xs"></span>DATA</th>
+                      <td id="td1" class="py-2">{{enterprise.edata}} GB</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.edata}} GB</td>
+                    </tr>
+                    
+                    <tr id="tr1" >
+                      <th id="th1" class="py-2"><span class="fa fa-tachometer fa-xs"></span>SPEED</th>
+                      <td id="td1" class="py-2">upto {{enterprise.espeed}} Mbps</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">upto {{compareplan?.espeed}} Mbps</td>
+                    </tr>
+                    <tr id="tr1" >
+                      <th id="th1" class="py-2"><span class="fa fa-phone fa-xs"></span>VOICE CALL</th>
+                      <td id="td1" class="py-2">{{enterprise.evoip}}</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.evoip}}</td>
+                    </tr>
+                    <tr id="tr1" >
+                      <th id="th1" class="py-2"><span class="fa fa-video-camera fa-xs"></span>VIDEO CONFERENCING</th>
+                      <td id="td1" class="py-2">{{enterprise.evideo}}</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.evideo}}</td>
+                    </tr>
+                    <tr id="tr1" >
+                      <th id="th1" class="py-2"><span class="fa fa-share-alt fa-xs"></span>MEDIA FILE SHARING</th>
+                      <td id="td1" class="py-2">{{enterprise.efilesharing}}</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.efilesharing}}</td>
+                    </tr>
+                    <tr id="tr1" >
+                      <th id="th1" class="py-2"><span class="fa fa-cloud fa-xs"></span>CLOUD APPLICATION USAGE</th>
+                      <td id="td1" class="py-2">{{enterprise.ecloud}}</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.ecloud}}</td>
+                    </tr>
+                    <tr id="tr1" >
+                      <th id="th1" class="py-2"><span class="fa fa-line-chart fa-xs"></span>FREQUENCY</th>
+                      <td id="td1" class="py-2">{{enterprise.efrequency}} GHz</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.efrequency}} GHz</td>
+                    </tr>
+                    <tr id="tr1" >
+                      <th id="th1" class="py-2"><span class="fa fa-sitemap fa-xs"></span>WIRELESS ISOLATION</th>
+                      <td id="td1" class="py-2">{{enterprise.eisolation}}</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.eisolation}}</td>
+                    </tr>
+              
+                  
+                    <tr id="tr1" >
+                      <th id="th1" class="py-2"><span class="fa fa-registered fa-xs"></span>FAST ROAMING</th>
+                      <td id="td1" class="py-2">{{enterprise.eroaming}}</td>
+                      <td id="td1" class="py-2" *ngIf="compareplan != undefined">{{compareplan?.eroaming}}</td>
+                    </tr>
+                   
+                    
+                    <tr id="tr1" >
+                      <th id="th1"  class="py-2"><span class="fa fa-info-circle fa-xs"></span>DESCRIPTION</th>
+                      <td id="td1" class="py-2" >{{enterprise.edescription}}</td>
+                      <td id="td1"  class="py-2" *ngIf="compareplan != undefined">{{compareplan?.edescription}}</td>
+                    </tr>             
+          </table>
+          </div>
+        </div>
+      </div>
     </div>

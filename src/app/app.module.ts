@@ -19,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
 import { CustomFilterPipe } from './custom-filter-pipe.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { CustomFilterPipe } from './custom-filter-pipe.pipe';
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(), 
+    ToastrModule.forRoot()
   ],
   providers: [ ],
   bootstrap: [AppComponent]

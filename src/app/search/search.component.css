@@ -78,7 +78,7 @@ h2{
   }
   .btn:hover
   {
-    cursor:no-drop;
+    /* cursor:no-drop; */
   }
   .info-widget {
     display: inline-block;

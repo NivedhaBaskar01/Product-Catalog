@@ -1,6 +1,7 @@
-<p>home works!</p>
-
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+<!-- <p>home works!</p> -->
+<div *ngIf="getRole()=='default'">
+  <br>
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel"> 
     <div class="carousel-indicators" >
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" ></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -29,6 +30,53 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
+<div id="about">
 <app-about></app-about>
+</div>
+</div>
+
 <!-- <app-footer></app-footer> -->
+
+
+<br><br><br>
+<div *ngIf="getRole()=='user'">
+<div class="outer" style="height: 500px;" >
+    <video width="100%" [muted]="'muted'" loop autoplay ><source src="assets\userhome.mp4" type="video/mp4" /></video>
+    <a href="#con" style="position: absolute;margin-left: -1130px;margin-top: 400px;">EXPLORE PLANS</a>
+</div>
+<div id="con" class="contain">
+    
+    <div class="card" >
+        <div class="imgbx">
+            <img src="assets/enterprisecard.png">
+        </div>
+        <div class="content" >
+            <h3>ENTERPRISE</h3>
+            <p  align="justify">Accelerate your business with Internet Solutions with everything your business needs to grow. </p>
+            <a href="http://localhost:4200/user/enterprise">VIEW PLANS</a>
+        </div>   
+    </div>
+    <div class="card" >
+        <div class="imgbx">
+            <img src="assets/businesscard.png">
+        </div>
+        <div class="content" >
+            <h3>BUSINESS</h3>
+            <p  align="justify">Propel your Business to next level with next-gen technologies and accelerate your journey with smart digital platforms.</p>
+            <a href="http://localhost:4200/user/business">VIEW PLANS</a>
+        </div>   
+    </div>
+    <div class="card" >
+        <div class="imgbx">
+            <img src="assets/residentialcard.png">
+        </div>
+        <div class="content" >
+            <h3>RESIDENTIAL</h3>
+            <p  align="justify">Wi-Fi like speeds, now on the go and get Unlimited Entertainment with the latest plans and offers.</p>
+            <a href="http://localhost:4200/user/residential">VIEW PLANS</a>
+        </div>   
+    </div>
+</div>
+</div>
+
+

@@ -2,7 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ProductserviceService } from '../productservice.service';
 import { PlanserviseService } from '../planservise.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +16,7 @@ export class SearchComponent {
   allProvider:any
   searchtxt:any 
 
-  constructor(private productservice:ProductserviceService,private planservice:PlanserviseService,private toast:ToastrService,private route:ActivatedRoute){}
+  constructor(private productservice:ProductserviceService,private planservice:PlanserviseService,private router:Router,private toast:ToastrService,private route:ActivatedRoute){}
 
   ngOnInit():void{
     this.searchtxt=this.route.snapshot.params['id']; 
@@ -112,4 +112,34 @@ export class SearchComponent {
   imageUrl(url:any){
     return 'data:image/jpeg;base64,'+url;
   }
+
+  gotoResidential(id:any){
+    if(localStorage.getItem("role")=='user'){
+      this.router.navigate(['/user/residential/'+id])
+    }
+    else{
+      alert("Login For More Details")
+         this.toast.show("Login For More Details")
+    }
+
+  }
+  gotoEnterprise(id:any){
+    if(localStorage.getItem("role")=='user'){
+      this.router.navigate(['/user/enterprise/'+id])
+    }
+    else{
+      alert("Login For More Details")
+      this.toast.show("Login For More Details")
+    }
+  }
+  gotoBusiness(id:any){
+    if(localStorage.getItem("role")=='user'){
+      this.router.navigate(['/user/business/'+id])
+    }
+    else{
+      alert("Login For More Details")
+      this.toast.show("Login For More Details")
+    }
+  }
+
 }

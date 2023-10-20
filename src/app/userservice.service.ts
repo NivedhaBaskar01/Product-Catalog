@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Users } from './users';
 import { Observable } from 'rxjs/internal/Observable';
 import { LoginComponent } from './login/login.component';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class UserserviceService {
   isLoggedin(){
     return this.isLogged;
   }
-  constructor(private http:HttpClient) 
+  constructor(private http:HttpClient,private router:Router) 
   {
   }
 
@@ -49,6 +50,7 @@ export class UserserviceService {
     this.isLogged=false;
     this.role="default";
     localStorage.setItem("role","default");
+    this.router.navigate([''])
   }
 
 }

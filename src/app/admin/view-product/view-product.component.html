@@ -12,7 +12,7 @@
                 </div>
             </div>
             <table class="table">
-                <thead>
+                
                     <tr>
                         <th>PRODUCT ID</th>
                         <th>NAME</th>
@@ -24,8 +24,8 @@
                         <th>CHANGE IMAGE</th>
                         <th>DELETE</th>
                     </tr>
-                </thead>
-                <tbody>
+                
+                
                     <tr *ngFor="let product of products | filter:searchText">
                         <td>{{product.productId}}</td>
                         <td>{{product.productName}}</td>
@@ -42,7 +42,7 @@
 
                         <td><button  id="action" (click)="onupdate(product)" data-bs-toggle="modal" data-bs-target="#deleteproduct"><i class="fa fa-trash"></i></button></td>
                     </tr>
-                </tbody>
+                
             </table>
         </div>
     </div>

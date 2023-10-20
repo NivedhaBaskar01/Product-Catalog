@@ -17,7 +17,7 @@ export class DetailsResidentialComponent {
 
 
   star=[1,2,3,4,5];
-  rating=3;
+  rating:any
   rate=0
   updateRating(r:any)
   {
@@ -29,6 +29,7 @@ export class DetailsResidentialComponent {
     this.id=this.route.snapshot.params['id'];    
     this.planservice.getResidentialById(this.id).subscribe(data=>{
       this.residential=data
+     this.rating =this.residential.product.rating;
       console.log(this.residential)
     })
      

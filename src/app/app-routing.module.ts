@@ -11,6 +11,10 @@ import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
+    path:'',
+    component:HomeComponent
+  },
+  {
     path: "login",
     component: LoginComponent
   },

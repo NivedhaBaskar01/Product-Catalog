@@ -52,7 +52,7 @@ export class AdminloginComponent {
     if(this.otp==this.generatedOtp){
       this.toast.success("Admin Login Successful","",{timeOut:2000})
       //alert("Admin Login Successful");
-      this.router.navigate(['/home']);
+      this.router.navigate(['/admin/adminhome']);
       this.userservice.loggedin("admin");
     }
     else{

@@ -30,6 +30,7 @@ export class DetailsEnterpriseComponent {
     this.planservice.getEnterpriseById(this.id).subscribe(data=>{
       this.enterprise=data
       console.log(this.enterprise)
+      this.rating=this.enterprise.product.rating
     })
 
     this.planservice.getAllEnterprise().subscribe(data=>{

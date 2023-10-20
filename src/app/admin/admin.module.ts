@@ -11,6 +11,7 @@ import { AddPlanComponent } from './add-plan/add-plan.component';
 import { UpdateBusinessComponent } from './update-business/update-business.component';
 import { UpdateEnterpriseComponent } from './update-enterprise/update-enterprise.component';
 import { UpdateResidentialComponent } from './update-residential/update-residential.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UpdateResidentialComponent } from './update-residential/update-resident
     AddPlanComponent,
     UpdateBusinessComponent,
     UpdateEnterpriseComponent,
-    UpdateResidentialComponent
+    UpdateResidentialComponent,
+    AdminhomeComponent
   ],
   imports: [
     CommonModule,

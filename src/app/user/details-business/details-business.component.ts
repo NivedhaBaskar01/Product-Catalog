@@ -15,7 +15,7 @@ export class DetailsBusinessComponent {
   allBusiness:any=[]
 
   star=[1,2,3,4,5];
-  rating=3;
+  rating:any
   rate=0
   updateRating(r:any)
   {
@@ -27,6 +27,7 @@ export class DetailsBusinessComponent {
     this.id=this.route.snapshot.params['id'];    
     this.planservice.getBusinessById(this.id).subscribe(data=>{
       this.business=data
+      this.rating=this.business.product.rating
       console.log(this.business)
     })
     this.planservice.getAllBusiness().subscribe(data=>{
