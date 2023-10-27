@@ -2,7 +2,7 @@
 .outer{
   height:auto;
   width: 100%;
-  background-image:url("src\assets\loginimg.png");
+  
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -85,8 +85,8 @@ background: -webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);
 .parent-panel{
   border-radius: 20px;
   background-color: white;
-  margin-top: -2%;
-  margin-left: 5%;
+  margin-top: -6%;
+  margin-left: 28%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   /* box-shadow:5px 10px black; */
 }
