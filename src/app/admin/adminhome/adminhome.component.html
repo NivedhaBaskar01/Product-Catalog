@@ -2,30 +2,64 @@
 <!--  admin home -->
 <br><br><br><br>
 <div *ngIf="getRole()=='admin'">
-  <div class="head">
-    <h2>ADMIN DASHBOARD</h2>
+    <div>
+    <div class="head">
+        <h2>ADMIN DASHBOARD</h2>
     </div>
-    <div class="bottom" >
-        <div class="card" routerLink="/admin/addproduct">
-            <div class="content" >
-                <i class="fa fa-plus" ></i>
+    <div class="bottom">
+        <!-- <div class="card" routerLink="/admin/addproduct">
+            <div class="content">
+                <i class="fa fa-plus"></i>
                 <h4>ADD CATEGORY</h4>
-                
-            </div>   
+
+            </div>
+        </div> -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="fa fa-plus" style="margin-left: -100px;"></i>
+                    <h4 style="margin-left: -40px;">ADD PRODUCT</h4>
+                </div>
+                <div class="flip-card-back" >
+                    <a style="margin-top: 30%;"  routerLink="/admin/addproduct">ADD PRODUCT</a><br>
+                </div>
+            </div>
         </div>
-        <div class="card" routerLink="/admin/addplan">
-            <div class="content" >
-                <i class="fa fa-plus-square-o" ></i>
+        <!-- <div class="card" routerLink="/admin/addplan">
+            <div class="content">
+                <i class="fa fa-plus-square-o"></i>
                 <h4 style="padding-left: 60px;">ADD PLANS</h4>
-                
-            </div>   
-        </div>
-        <div class="card" style="width: 260px;" routerLink="/admin/viewproduct">
-            <div class="content" >
-                <i class="fa fa-pencil-square" ></i>
+
+            </div>
+        </div> -->
+        <!-- <div class="card" style="width: 260px;" routerLink="/admin/viewproduct">
+            <div class="content">
+                <i class="fa fa-pencil-square"></i>
                 <h4 style="padding-left: 20px;">UPDATE CATEGORY</h4>
-                
-            </div>   
+
+            </div>
+        </div> -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="fa fa-plus-square-o" style="margin-left: -100px;"></i>
+                    <h4 style="margin-left: -40px;">ADD PLAN</h4>
+                </div>
+                <div class="flip-card-back" >
+                    <a style="margin-top: 30%;"  routerLink="/admin/addplan">ADD PLAN</a><br>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <i class="fa fa-pencil-square" style="margin-left: -100px;"></i>
+                    <h4 style="margin-left: -40px;">UPDATE PRODUCT</h4>
+                </div>
+                <div class="flip-card-back" >
+                    <a style="margin-top: 30%;"  routerLink="/admin/viewproduct">UPDATE</a><br>
+                </div>
+            </div>
         </div>
         <!-- <div class="card" >
             <div class="content" >
@@ -36,17 +70,18 @@
         </div> -->
         <div class="flip-card">
             <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <i class="fa fa-pencil" style="margin-left: -100px;" ></i>
-                <h4 style="margin-left: -40px;" >UPDATE PLANS</h4>
-              </div>
-              <div class="flip-card-back">
-                <a routerLink="/admin/updateenterprise">ENTERPRISE</a><br>
-                <a routerLink="/admin/updatebusiness">BUSINESS</a><br>
-                <a routerLink="/admin/updateresidential">RESIDENTIAL</a>
-              </div>
+                <div class="flip-card-front">
+                    <i class="fa fa-pencil" style="margin-left: -100px;"></i>
+                    <h4 style="margin-left: -40px;">UPDATE PLANS</h4>
+                </div>
+                <div class="flip-card-back">
+                    <a routerLink="/admin/updateenterprise">ENTERPRISE</a><br>
+                    <a routerLink="/admin/updatebusiness">BUSINESS</a><br>
+                    <a routerLink="/admin/updateresidential">RESIDENTIAL</a>
+                </div>
             </div>
-          </div>
+        </div>
+</div>
     </div>
-      
+
 </div>
