@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { PlanserviseService } from 'src/app/planservise.service';
 import { Enterprise } from 'src/enterprise';
 
@@ -24,7 +25,7 @@ export class DetailsEnterpriseComponent {
    this.rate=r 
   }
 
-  constructor(private planservice:PlanserviseService,private route:ActivatedRoute,private router:Router){}
+  constructor(private planservice:PlanserviseService,private route:ActivatedRoute,private router:Router,private toast:ToastrService){}
   ngOnInit():void{
     this.id=this.route.snapshot.params['id'];    
     this.planservice.getEnterpriseById(this.id).subscribe(data=>{
@@ -43,6 +44,12 @@ export class DetailsEnterpriseComponent {
       this.compareplan = data
       console.log(this.compareplan)
     })
+  }
+
+  giveRating(){
+    this.toast.success("Thanks for the review!!");
+    window.location.reload()
+    this.ngOnInit();
   }
   imageUrl(url:any){
     return 'data:image/jpeg;base64,'+url;

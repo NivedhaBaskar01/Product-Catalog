@@ -46,7 +46,7 @@
           <label>LEAVE A REVIEW</label>
           <input type="text"   name="productname" required title="Comment"  />
       </div>
-      <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;">
+      <button (click)="giveRating()" type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 40px;">
         <small>SUBMIT</small></button>
   </div>
 </div>
@@ -255,7 +255,8 @@
               <label>LEAVE A REVIEW</label>
               <input type="text"   name="productname" required title="Comment"  />
           </div>
-          <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 30px;"><small>SUBMIT</small></button>
+          <button  (click)="giveRating()" type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 30px;">
+            <small>SUBMIT</small></button>
       </div>
     </div>
     
