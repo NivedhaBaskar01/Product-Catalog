@@ -48,8 +48,6 @@ export class DetailsEnterpriseComponent {
 
   giveRating(){
     this.toast.success("Thanks for the review!!");
-    window.location.reload()
-    this.ngOnInit();
   }
   imageUrl(url:any){
     return 'data:image/jpeg;base64,'+url;

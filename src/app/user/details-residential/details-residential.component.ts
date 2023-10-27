@@ -49,8 +49,6 @@ export class DetailsResidentialComponent {
 
   giveRating(){
     this.toast.success("Thanks for the review!!");
-    window.location.reload()
-    this.ngOnInit();
   }
 
   imageUrl(url:any){

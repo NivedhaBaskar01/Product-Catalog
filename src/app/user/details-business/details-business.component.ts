@@ -49,7 +49,5 @@ export class DetailsBusinessComponent {
 
   giveRating(){
     this.toast.success("Thanks for the review!!");
-    window.location.reload()
-    this.ngOnInit();
   }
 }
