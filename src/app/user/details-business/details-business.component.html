@@ -16,7 +16,7 @@
     
     </div>
     <div class="head1">
-      <div class="discount" style="margin-top: 5px;" *ngIf="business.bdiscount != null">-{{business.bdiscount}}%</div>
+      <div class="discount" style="margin-top: 5px;" *ngIf="business.bdiscount != '0'">-{{business.bdiscount}}%</div>
       <div class="price" style="display: flex;padding-top: 15px;">
         <span id="sp"></span><h2>₹{{business.bfinalPrice}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
         <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 200px;cursor: no-drop;"><span class="fa fa-wifi" style="font-size: 0.8rem;"></span><small>Wireline</small></button>
@@ -212,7 +212,7 @@
     
     </div>
     <div class="head1">
-      <div class="discount" style="margin-top: 5px;" *ngIf="business.bdiscount != null">-{{business.bdiscount}}%</div>
+      <div class="discount" style="margin-top: 5px;" *ngIf="business.bdiscount != '0'">-{{business.bdiscount}}%</div>
       <div class="price" style="display: flex;padding-top: 15px;">
         <span id="sp"></span><h2>₹{{business.bfinalPrice}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
         <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 200px;cursor: no-drop;"><span class="fa fa-wifi" style="font-size: 0.8rem;"></span><small>Wireless</small></button>

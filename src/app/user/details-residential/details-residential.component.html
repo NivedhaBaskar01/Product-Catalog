@@ -16,7 +16,7 @@
     
     </div>
     <div class="head1">
-      <div class="discount" style="margin-top: 5px;" *ngIf="residential.rdiscount != null">-{{residential.rdiscount}}%</div>
+      <div class="discount" style="margin-top: 5px;" *ngIf="residential.rdiscount != '0'">-{{residential.rdiscount}}%</div>
       <div class="price" style="display: flex;padding-top: 15px;">
         <span id="sp"></span><h2>₹{{residential.rcost}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">+taxes</small>
         <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 200px;cursor: no-drop;"><span class="fa fa-wifi" style="font-size: 0.8rem;"></span><small>Wireline</small></button>
@@ -226,7 +226,7 @@
       
       </div>
       <div class="head1">
-        <div class="discount" style="margin-top: 5px;" *ngIf="residential.rdiscount != null">-{{residential.rdiscount}}%</div>
+        <div class="discount" style="margin-top: 5px;" *ngIf="residential.rdiscount != '0'">-{{residential.rdiscount}}%</div>
         <div class="price" style="display: flex;padding-top: 15px;">
           <span id="sp"></span><h2>₹{{residential.rcost}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">+taxes</small>
           <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 200px;cursor: no-drop;"><span class="fa fa-wifi" style="font-size: 0.8rem;">

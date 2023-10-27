@@ -39,7 +39,7 @@
                 </div>
               </div>
               <div class="head" style="display: flex;">
-              <div class="discount" *ngIf="product.bdiscount != null">-{{product.bdiscount}}%</div>
+              <div class="discount" *ngIf="product.bdiscount != '0'">-{{product.bdiscount}}%</div>
             <i id="wish" class="fa fa-heart-o fa-lg" style="color: #FE4F70;margin-left: 290px;margin-top: 10px;" ></i>
               </div>
               <div class="price" style="display: flex;padding-top: 12px;">
@@ -131,7 +131,7 @@
                   </div>
                 </div>
                 <div class="head" style="display: flex;">
-                <div class="discount" *ngIf="product.bdiscount != null || product.bdiscount != '0'">-{{product.bdiscount}}%</div>
+                <div class="discount" *ngIf="product.bdiscount != '0' || product.bdiscount != '0'">-{{product.bdiscount}}%</div>
               <i id="wish" class="fa fa-heart-o fa-lg" style="color: #FE4F70;margin-left: 290px;margin-top: 10px;" ></i>
                 </div>
                 <div class="price" style="display: flex;padding-top: 12px;">
