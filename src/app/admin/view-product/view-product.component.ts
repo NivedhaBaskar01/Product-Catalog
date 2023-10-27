@@ -40,7 +40,7 @@ export class ViewProductComponent {
 
     this.productservice.updateProduct(this.updatevalue).subscribe(data=>{
       console.log(data)
-      this.toast.success("Product Added")
+      this.toast.success("Product Updated")
       //alert("Product Updated")
       window.location.reload
       this.ngOnInit()

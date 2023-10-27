@@ -48,7 +48,8 @@
               <label>LEAVE A REVIEW</label>
               <input  type="text"   name="productname" required title="Comment"  />
           </div>
-          <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 30px;"><small>SUBMIT</small></button>
+          <button (click)="giveRating()" type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 30px;">
+            <small>SUBMIT</small></button>
       </div>
     </div>
     
@@ -131,7 +132,7 @@
                     <th id="th1"  style="text-align: left;
                     background:   #FE4F70 ;
                     height: 50px;
-                    color: white;"><i class="fa fa-th-list" style="color: white;background:  #FE4F70"></i>FEATURES</th>
+                    color: white; width:30%"><i class="fa fa-th-list" style="color: white;background:  #FE4F70"></i>FEATURES</th>
                     <th id="headertag" style="color: white;">{{business.bplanName}}</th>
                     <th id="headertag" style="color: white;" *ngIf="compareplan != undefined">{{compareplan?.bplanName}}</th>
                 </tr>
@@ -243,7 +244,8 @@
               <label>LEAVE A REVIEW</label>
               <input type="text"   name="productname" required title="Comment"  />
           </div>
-          <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 30px;"><small>SUBMIT</small></button>
+          <button (click)="giveRating()" type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-top: 30px;">
+            <small>SUBMIT</small></button>
       </div>
     </div>    
     <div class="tab" style="margin-right: -4px;margin-left: 30px;">
@@ -333,7 +335,7 @@
                       <th id="th1" style="text-align: left;
                       background:   #FE4F70 ;
                       height: 50px;
-                      color: white;"><i class="fa fa-th-list" style="color: white;background:  #FE4F70"></i>FEATURES</th>
+                      color: white;width:30%"><i class="fa fa-th-list" style="color: white;background:  #FE4F70"></i>FEATURES</th>
                       <th id="headertag" style="color: white;">{{business.bplanName}}</th>
                       <th id="headertag" style="color: white;" *ngIf="compareplan != undefined">{{compareplan?.bplanName}}</th>
                   </tr>

@@ -39,8 +39,10 @@
   {
 	flex-basis: 55%;
 	padding: 14px 30px;
+	justify-content: center;
+	text-align: left;
 	border: 3px;
-	line-height: 30px;
+	line-height: 30px;text-justify:newspaper;
 	flex: 1;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }

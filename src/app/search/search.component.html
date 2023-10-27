@@ -10,7 +10,7 @@
 <div id="heading">
   <h5 id="headtxt">BUSINESS WIRELINE PLANS</h5>
 </div>
-<div class="container">
+<div class="contain">
   <div style="float: left">
       <button id="navbtn" style="left: 0;" (click)="bscrollLeftwireline()"><i class="fa fa-chevron-left"></i></button>
   </div>
@@ -19,7 +19,7 @@
         <h3 style="margin-left: 280px;padding: 150px;">No Plans available</h3> 
     </div>
   <div class="info-widget" *ngFor="let product of allBusiness | filter : 'Wireline' | filter: searchtxt">
-<div class="cont"  style="height:405px;width:380px;border:1px solid;border-radius: 10px;border-color:gainsboro; margin-left: 10px;margin-top: 10px;">
+<div class="cont"  style="height:407px;width:380px;border:1px solid;border-radius: 10px;border-color:gainsboro; margin-left: 10px;margin-top: 10px;">
     <div class="header" style="height: 50px;">
             <div class="row g-0">
                 <div class="col-md-4">
@@ -35,7 +35,7 @@
               </div>
               <div class="price" style="display: flex;padding-top: 12px;">
                 <span></span><h2>₹{{product.bfinalPrice}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
-                <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 120px;"><i class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireline</small></button>
+                <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 50px;"><i class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireline</small></button>
               </div>
               
               <div class="row" >
@@ -95,7 +95,7 @@
       <h5 id="headtxt">BUSINESS WIRELESS PLANS</h5>
       
     </div>  
-    <div class="container">
+    <div class="contain">
       <div style="float: left">
           <button id="navbtn" style="left: 0;" (click)="bscrollLeftwireless()"><i class="fa fa-chevron-left"></i></button>
       </div>
@@ -105,7 +105,7 @@
         </div> 
       <div class="info-widget" *ngFor="let product of allBusiness | filter : 'Wireless' | filter :  searchtxt">
     
-     <div class="cont" style="height:400px;width:380px;border:1px solid;border-radius: 10px;border-color:gainsboro; margin-left: 10px;margin-top: 10px;">
+     <div class="cont" style="height:407px;width:380px;border:1px solid;border-radius: 10px;border-color:gainsboro; margin-left: 10px;margin-top: 10px;">
       <div class="header" style="height: 50px;">
               <div class="row g-0">
                   <div class="col-md-4">
@@ -121,7 +121,7 @@
                 </div>
                 <div class="price" style="display: flex;padding-top: 12px;">
                   <span></span><h2>₹{{product.bfinalPrice}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
-                  <button type="submit" class="btn " style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 120px;"><i class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireless</small></button>
+                  <button type="submit" class="btn " style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 50px;"><i class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireless</small></button>
                 </div>
                 <div class="row" >
                   <div class="col-4">
@@ -180,7 +180,7 @@
 <div id="heading">
   <h5 id="headtxt">ENTERPRISE WIRELINE PLANS</h5>
   </div>
-<div class="container">
+<div class="contain">
   <div style="float: left">
     <button id="navbtn" style="left: 0;" (click)="escrollLeftwireline()"><i class="fa fa-chevron-left"></i></button>
   </div>
@@ -211,7 +211,7 @@
             <h2>₹{{product.efinalPrice}}</h2>
             <small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
             <button type="submit" class="btn "
-              style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 120px;"><i
+              style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 50px;"><i
                 class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireline</small></button>
           </div>
           <div class="row">
@@ -280,7 +280,7 @@
 <div id="heading" style="margin-top: 2%;">
   <h5 id="headtxt">ENTERPRISE WIRELESS PLANS</h5>
 </div>
-<div class="container">
+<div class="contain">
   <div style="float: left">
     <button id="navbtn" style="left: 0;" (click)="escrollLeftwireless()"><i class="fa fa-chevron-left"></i></button>
   </div>
@@ -312,7 +312,7 @@
             <h2>{{product.efinalPrice}}</h2><small
               style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
             <button type="submit" class="btn "
-              style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 120px;"><i
+              style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 50px;"><i
                 class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireless</small></button>
           </div>
           <div class="row">
@@ -383,7 +383,7 @@
 <div id="heading">
   <h5 id="headtxt">RESIDENTIAL WIRELINE PLANS</h5>
 </div>
-<div class="container">
+<div class="contain">
   <div style="float: left">
       <button id="navbtn" style="left: 0;" (click)="rscrollLeftwireline()" ><i class="fa fa-chevron-left"></i></button>
   </div>
@@ -408,7 +408,7 @@
               </div>
               <div class="price" style="display: flex;padding-top: 12px;">
                 <span></span><h2>₹{{product.rfinalPrice}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
-                <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 120px;"><i class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireline</small></button>
+                <button type="submit" class="btn" style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 50px;"><i class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireline</small></button>
               </div>
               
               <div class="row" >
@@ -466,7 +466,7 @@
   <div id="heading" style="margin-top: 2%;">
     <h5 id="headtxt">RESIDENTIAL WIRELESS PLANS</h5>
   </div>
-  <div class="container">
+  <div class="contain">
     <div style="float: left">
         <button id="navbtn" style="left: 0;" (click)="rscrollLeftwireless()" ><i class="fa fa-chevron-left"></i></button>
     </div>
@@ -488,7 +488,7 @@
               </div>
               <div class="price" style="display: flex;padding-top: 12px;">
                 <span></span><h2>₹{{product.rfinalPrice}}</h2><small style="padding-top: 15px;padding-bottom: 12px;padding-left: 5px;color: grey;">per month</small>
-                <button type="submit" class="btn " style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 120px;"><i class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireless</small></button>
+                <button type="submit" class="btn " style="background:-webkit-linear-gradient(left, #FE4F70 0%, #FFA387 100%);color: white;border: none;border-radius: 10px;height: 30px;padding-top: 2px;margin-left: 50px;"><i class="fa fa-wifi" style="font-size: 0.8rem;"></i><small>Wireless</small></button>
               </div>
               <div class="row" >
                 <div class="col-4">

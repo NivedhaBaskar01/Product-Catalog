@@ -44,7 +44,11 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(
+      {timeOut:2000,
+      positionClass:'toast-top-center',
+    preventDuplicates:true}
+    )
   ],
   providers: [ ],
   bootstrap: [AppComponent]

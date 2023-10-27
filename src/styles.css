@@ -5,3 +5,18 @@
 body{
     scroll-behavior: smooth;
 }
+
+.toast-top-center{
+    top:2%;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    width: 100%;
+}
+.toast-bottom-center{
+    bottom: 30%;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    width: 100%;
+}

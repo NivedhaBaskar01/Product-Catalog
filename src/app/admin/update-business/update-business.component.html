@@ -29,6 +29,7 @@
                     <tr style="text-align: left;">
                         <th>PLAN ID</th>
                         <th>PLAN NAME</th>
+                        <th>PRODUCT NAME</th>
                         <!-- <th>CLASSIFICATION</th> -->
                         <th>CATEGORY</th>                   
                         <th>UPDATE</th>
@@ -39,6 +40,7 @@
                     <tr *ngFor="let b of allBusiness | filter : searchtxt">
                         <td>{{b.businessId}}</td>
                         <td>{{b.bplanName}}</td>
+                        <td>{{b.product.productName}}</td>
                         <!-- <td>{{b.product.classification}}</td> -->
                         <td>{{b.product.category}}</td>                       
                         <td style="text-align: left;"><button id="action" (click)="onUpdate(b)"   data-bs-toggle="modal" data-bs-target="#updatemodal">                            
